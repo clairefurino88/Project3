@@ -8,7 +8,7 @@ import "./About.css"; // About Page CSS
 const About = () => (
 
     <Wrapper>
-{/* 
+        {/* 
         { const TeamList = Team.map((member) => {
         return (
            <div className="TeamList" key={member.id}>
@@ -20,11 +20,27 @@ const About = () => (
         );
    });
    } */}
+        <Row>
+            <Col size="md" span="4">
+                <DevCard />
+            </Col>
+            <Col size="md" span="4">
+                <DevCard />
+            </Col>
+            <Col size="md" span="4">
+                <DevCard />
+            </Col>
+        </Row>
+        <Row>
+            <Col size="md" span="4">
+                <DevCard />
+            </Col>
+            <Col size="md" span="4">
+                <DevCard />
+            </Col>
+        </Row>
 
-        <DevCard />
-        <DevCard />
-        <DevCard />
-        <DevCard />
+
 
         <div class="col-md-4">
             <a class="twitter-timeline" data-width="270" data-height="470" href="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"> Follow us on Twitter </a>
