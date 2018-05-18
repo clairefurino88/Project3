@@ -22,6 +22,9 @@ const About = () => (
    } */}
 
         <DevCard />
+        <DevCard />
+        <DevCard />
+        <DevCard />
 
         <div class="col-md-4">
             <a class="twitter-timeline" data-width="270" data-height="470" href="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"> Follow us on Twitter </a>

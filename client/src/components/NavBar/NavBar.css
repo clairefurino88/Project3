@@ -8,7 +8,6 @@
 }
 
 .navbar a:hover {
-    background-color: purple;
     color: white !important;
 }
 
@@ -54,7 +53,7 @@
     background: b-wekit-linear-gradient(bottom right, #692e4e), rgba(255, 255, 255, 1);
     background: -o-linear-gradient(bottom right, #31708e, #8Fc1e3);
     background: -moz-linear-gradient(bottom right, #31708e, #8Fc1e3);
-    background: linear-gradient(to bottom right, #ad5389, #3c1053);
+    background: linear-gradient(to bottom right, #e6a8f8, #a347af);
     
     }
     .logo-text{
@@ -64,8 +63,8 @@
         margin-top: -18px;
        }
        .btn{
-        background-color: #e1000e;
-        color:#ffffff;
+        background-color: rgb(252, 250, 132);
+        color: black;
         box-shadow: 3px 3px #262f2a;
         margin-right: 5px;
         }
