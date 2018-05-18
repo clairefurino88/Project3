@@ -9,17 +9,7 @@ import PostForm from "../../components/PostForm";
 const Feed = () => (
 
     <Wrapper>
-
-        {/* <h1>Feed Page</h1>
-        <br />
-        <h4>Route: '/feed'</h4>
-        <h4>Rendering:
-            <ol>
-                <li>  </li>
-                <li>  </li>
-                <li>  </li>
-            </ol>
-        </h4> */}
+        <CatButton />
 
         <Post 
         image="https://www.publicdomainpictures.net/pictures/30000/velka/portrait-of-a-man-1331296473U9x.jpg"
@@ -41,3 +31,14 @@ const Feed = () => (
 );
 
 export default Feed;
+
+{/* <h1>Feed Page</h1>
+        <br />
+        <h4>Route: '/feed'</h4>
+        <h4>Rendering:
+            <ol>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+            </ol>
+        </h4> */}
