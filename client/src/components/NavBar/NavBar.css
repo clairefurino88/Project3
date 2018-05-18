@@ -31,3 +31,41 @@
     color: white;
     text-decoration-color: white;
 } */
+#logo {
+    position:relative;
+    top: -47px;
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    background: white;  
+    border-radius: 50%;
+    border: 1px;
+    border-color: white;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+   }
+
+   .navbar, .sign_up, .about, footer, .login-form, .col-md-7{
+    padding: 40px 31px 0 31px;
+    box-shadow: 0 2px 4px 0 rgba(38, 47, 42, 1.0), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    border: 0px solid black;
+    background: white;
+    background: b-wekit-linear-gradient(bottom right, #692e4e), rgba(255, 255, 255, 1);
+    background: -o-linear-gradient(bottom right, #31708e, #8Fc1e3);
+    background: -moz-linear-gradient(bottom right, #31708e, #8Fc1e3);
+    background: linear-gradient(to bottom right, #ad5389, #3c1053);
+    
+    }
+    .logo-text{
+        margin-left: 113px;
+        font-family: 'Bree Serif', serif;
+        text-shadow: 3px 3px #262f2a;
+        margin-top: -18px;
+       }
+       .btn{
+        background-color: #e1000e;
+        color:#ffffff;
+        box-shadow: 3px 3px #262f2a;
+        margin-right: 5px;
+        }
