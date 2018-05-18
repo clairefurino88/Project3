@@ -19,18 +19,23 @@ const Post = ({ image, name, category, timeStamp, comment }) => (
     //             <li>Comment</li>
     //         </ol>
     //     </h4> */}
-    <div>
-        <Row>
-            <Col size="md" span="6">
-                <div className="panel post-panel">
-                    <div className="panel-body">
-                        <Row>
-                            <Col size="md" span="2">
-                                <img src={image} alt={name} />
-                            </Col>
-                            <Col size="md" span="5">
-                                {name}
-                            </Col>
+    
+        <div>
+            <div className="postContainer">
+            <h4>Hate Feed</h4>
+            <p>Share your story...</p>
+            <Row>
+                <Col size="md" span="6">
+                    <div className="panel post-panel">
+
+                        <div className="panel-body">
+                            <Row>
+                                <Col size="md" span="2">
+                                    <img className="postimg" src={image} alt={name} />
+                                </Col>
+                                <Col size="md" span="5">
+                                    {name}
+                                </Col>
                             </Row>
 
                             {timeStamp}
@@ -40,12 +45,13 @@ const Post = ({ image, name, category, timeStamp, comment }) => (
                                 {comment}
 
                             </div>
-                </div>
-                </div>
-            </Col>
-        </Row>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+        </div>
     </div>
 
-            );
-            
+);
+
 export default Post;
