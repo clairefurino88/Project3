@@ -20,19 +20,25 @@ const Feed = () => (
                 <li>  </li>
             </ol>
         </h4> */}
+        <Row>
+            <Col size="md" span="8">
+                <Post
+                    image="https://www.publicdomainpictures.net/pictures/30000/velka/portrait-of-a-man-1331296473U9x.jpg"
+                    name="Mr Man"
+                    category="Traffic"
+                    comment="No comment"
+                    timeStamp="date"
+                />
+            </Col>
 
-        <Post 
-        image="https://www.publicdomainpictures.net/pictures/30000/velka/portrait-of-a-man-1331296473U9x.jpg"
-        name="Mr Man"
-        category="Traffic"
-        comment="No comment"
-        timeStamp="date"
-        />
 
-        <PostForm 
-        postComment="Post gets feed into comment."
-        category="Traffic"
-        />
+            <Col>
+                <PostForm
+                    postComment="Post gets feed into comment."
+                    category="Traffic"
+                />
+            </Col>
+        </Row>
 
 
 

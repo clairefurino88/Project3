@@ -6,7 +6,7 @@ import "./PostForm.css"; // Post Form CSS
 const PostForm = ({ postComment, category }) => (
 
     <div>
-        <Row>
+        {/* <Row> */}
             <div className="panel panel-default">
                 <div className="post panel-heading">Post Form</div>
                 <div className="post panel-body">
@@ -19,7 +19,7 @@ const PostForm = ({ postComment, category }) => (
                     </button>
                 </div>
             </div>
-        </Row>
+        {/* </Row> */}
     </div>
 
 

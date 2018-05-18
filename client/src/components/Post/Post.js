@@ -24,8 +24,8 @@ const Post = ({ image, name, category, timeStamp, comment }) => (
             <div className="postContainer">
             <h4>Hate Feed</h4>
             <p>Share your story...</p>
-            <Row>
-                <Col size="md" span="6">
+            {/* <Row> */}
+                {/* <Col size="md" span="6"> */}
                     <div className="panel post-panel">
 
                         <div className="panel-body">
@@ -47,8 +47,9 @@ const Post = ({ image, name, category, timeStamp, comment }) => (
                             </div>
                         </div>
                     </div>
-                </Col>
-            </Row>
+                {/* </Col> */}
+
+            {/* </Row> */}
         </div>
     </div>
 
