@@ -29,6 +29,12 @@ const Feed = () => (
         timeStamp="date"
         />
 
+        <PostForm 
+        postComment="Post gets feed into comment."
+        category="Traffic"
+        />
+
+
 
     </Wrapper>
 
