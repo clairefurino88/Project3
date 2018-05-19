@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./NavBar.css"; // NavBar CSS
 import Logo from "./Logo.json"; // Hate&Date Logo
 
