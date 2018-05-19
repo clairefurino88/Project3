@@ -5,8 +5,6 @@ import API from "./utils/API";
 import { NavBar } from "./components";
 import { About, Feed, Home, Login, Profile } from "./pages"
 
-
-
 class App extends React.Component {
 
   state = {
