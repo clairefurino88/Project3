@@ -1,33 +1,38 @@
 import React from "react";
 import { Col, Row, Wrapper } from "../BootstrapGrid";
+import About from "../../pages/About";
 import "./DevCard.css"; // Developer Card CSS
 
 // Luis: Starter Code
-const DevCard = () => {
-    return (
-        <Wrapper>
-            <div className="card">
+const DevCard = props => (
+
+            <div className="devCard">
+
                 <div className="img-container">
-                    <img alt= "bob" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX7470436.jpg" />
+                    <img alt={props.name} src={props.image} id="devCardImg" />
                 </div>
-                <div className="content">
+
+                <div className="devContent">
                     <ul>
-                        <li>
-                            <strong>Name:</strong> bob 
+                        <li className="devList">
+                            <strong>{props.name}</strong>
                         </li>
-                        <li>
-                            <strong>Occupation:</strong> jobless
-                        </li>
-                        <li>
-                            <strong>LinkedIn:</strong> linkedin links
+                        <a href={props.linkedIn} target="blank" id="devTag">
+                            <i style={{ fontSize: "30px" }} className="fab fa-linkedin"></i>
+                        </a>
+                        <a href={props.gitHub} target="blank">
+                            <i style={{ fontSize: "30px" }} class="fab fa-github"></i>
+                        </a>
+                        <li className="devList">
+                            {props.email}
                         </li>
                     </ul>
-                </div>
-            </div>
-        </Wrapper>
 
-    );
-}
+                </div>
+
+            </div>
+
+);
 
 
 export default DevCard;
