@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./NavBar.css"; // NavBar CSS
+import Logo from "./Logo.json"; // Hate&Date Logo
 
 const NavBar = ({ loggedIn, logout }) => {
   return (
@@ -17,7 +18,7 @@ const NavBar = ({ loggedIn, logout }) => {
             <a class="navbar-brand">
               <Link to="/login">
                 <div>
-                  <img class="animated infinite pulse" id="logo" src alt="logo" />
+                  <img class="animated infinite pulse" id="logo" src={Logo.imageUrl} alt={Logo.name} />
                 </div>
               </Link>
             </a>
