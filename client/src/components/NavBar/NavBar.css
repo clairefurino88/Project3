@@ -1,52 +1,6 @@
 /* NavBar Styling */
 
-/* NavBar Links Styling */
-.navbar a {
-    color: rgba(0,0,0,.5);
-    padding: 10px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    color: white !important;
-}
-
-.navbar-nav li {
-    padding: 10px;
-}
-
-/* .navbar-nav li:hover {
-    background-color: purple;
-    color: white;
-} */
-/* 
-.nav-item a:hover {
-    background-color: purple;
-    color: white;
-}
-
-.nav-item .nav-link:hover {
-    background-color: purple;
-    color: white;
-    text-decoration-color: white;
-} */
-#logo {
-    position:relative;
-    top: -47px;
-    width: 70px;
-    height: 70px;
-    padding: 5px;
-    background: white;  
-    border-radius: 50%;
-    border: 1px;
-    border-color: white;
-    font-size: 10px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
-   }
-
-   .navbar, .sign_up, .about, footer, .login-form, .col-md-7{
-    padding: 40px 31px 0 31px;
+.navbar {
     box-shadow: 0 2px 4px 0 rgba(38, 47, 42, 1.0), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
     border: 0px solid black;
     background: white;
@@ -54,17 +8,202 @@
     background: -o-linear-gradient(bottom right, #31708e, #8Fc1e3);
     background: -moz-linear-gradient(bottom right, #31708e, #8Fc1e3);
     background: linear-gradient(to bottom right, #e6a8f8, #a347af);
-    
+    min-height: 90px;
+}
+
+/* NavBar Header and Logo Styling */
+
+#logo {
+    background: white;  
+    border: 1px;
+    border-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    font-size: 10px;
+    height: 70px;
+    margin: 10px;
+    padding: 5px;
+    width: 70px;
+}
+
+#logoText {
+    color: white;
+    font-family: 'Bree Serif', serif;
+    margin-left: 25px;
+    margin-top: 0px;
+    text-shadow: 3px 3px #262f2a;
+}
+
+/* NavBar Button\Link Styling */
+
+.navBarBtn {
+    background-color: rgb(252, 250, 132);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 3px 3px #262f2a;
+    color: black;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    padding: 8px 0px;
+    text-transform: uppercase;
+    width: 125px;
+}
+
+.navBarBtn:hover {
+    background-color: #563D7C;
+    color: white;
+}
+
+.navBarBtn:focus {
+    outline: none;
+}
+
+.navBarBtnList {
+    margin: 0;
+    padding: 0;
+}
+
+.navBarBtnList li {
+    display: inline;
+}
+
+.navBarBtnWrapper {
+    position: absolute;
+    right: 10px;
+}
+
+.navBarBtnWrapper a {
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .navBarBtnWrapper {
+        margin: 0 auto;
+        margin-top: 95px;
+        position: unset;
     }
-    .logo-text{
-        margin-left: 113px;
-        font-family: 'Bree Serif', serif;
-        text-shadow: 3px 3px #262f2a;
-        margin-top: -18px;
-       }
-       .btn{
+
+    .navBarHeader {
+        left: 90px;
+        position: absolute;
+        top: 25px;
+    }
+
+    .navBarLogo {
+        position: absolute;
+        top: 0;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .navBarBtnWrapper {
+        margin: 0 auto;
+        margin-top: 95px;
+        position: unset;
+    }
+
+    .navBarHeader {
+        left: 90px;
+        position: absolute;
+        top: 25px;
+    }
+
+    .navBarLogo {
+        position: absolute;
+        top: 0;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    .navBarBtn {
+        font-size: 10px;
+        padding: 5px 0px;
+        width: 60px;
+    }
+
+    .navBarBtnWrapper {
+        margin: 0 auto;
+        margin-top: 95px;
+        position: unset;
+    }
+
+    .navBarBtnWrapper a {
+        margin-bottom: 3px;
+        padding: 0 3px;
+    }
+
+    .navBarHeader {
+        left: 90px;
+        position: absolute;
+        top: 25px;
+    }
+
+    .navBarLogo {
+        position: absolute;
+        top: 0;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .navBarBtn {
+        font-size: 9px;
+        padding: 5px 0px;
+        width: 50px;
+    }
+
+    .navBarBtnWrapper {
+        margin: 0 auto;
+        margin-top: 95px;
+        position: unset;
+    }
+
+    .navBarBtnWrapper a {
+        margin-bottom: 3px;
+        padding: 0 3px;
+    }
+
+    .navBarHeader {
+        left: 90px;
+        position: absolute;
+        top: 25px;
+    }
+
+    .navBarLogo {
+        position: absolute;
+        top: 0;
+    }
+
+}
+
+/* [Luis] Important: NavBar styling only!...
+
+.navbar, .sign_up, .about, footer, .login-form, .col-md-7{
+    box-shadow: 0 2px 4px 0 rgba(38, 47, 42, 1.0), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    border: 0px solid black;
+    background: white;
+    background: b-wekit-linear-gradient(bottom right, #692e4e), rgba(255, 255, 255, 1);
+    background: -o-linear-gradient(bottom right, #31708e, #8Fc1e3);
+    background: -moz-linear-gradient(bottom right, #31708e, #8Fc1e3);
+    background: linear-gradient(to bottom right, #e6a8f8, #a347af);
+    padding: 40px 31px 0 31px;
+}
+
+.btn {
         background-color: rgb(252, 250, 132);
-        color: black;
+        border-width: 0;
         box-shadow: 3px 3px #262f2a;
-        margin-right: 5px;
-        }
+        color: black;
+        width: 125px;
+}
+
+... */

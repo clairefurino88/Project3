@@ -1,82 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./NavBar.css"; // NavBar CSS
 import Logo from "./Logo.json"; // Hate&Date Logo
 
 const NavBar = ({ loggedIn, logout }) => {
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      {/* <ul>
-        <li key="home" className="nav-item">
-          <Link className="nav-item nav-link" to="/home">Home - Sign Up</Link>
-        </li>
-      </ul> */}
-      {/* Original Franklin Code... */}
-      <div class="row">
-        <div class="col-md-8">
-          <div class="navbar-header" id="login-navbar-header">
-            <a class="navbar-brand">
-              <Link to="/login">
-                <div>
-                  <img class="animated infinite pulse" id="logo" src={Logo.imageUrl} alt={Logo.name} />
-                </div>
-              </Link>
-            </a>
-            <h1 style={{ color: "white" }} class="logo-text animated infinite pulse "> Hate&Date</h1>
-          </div>
-        </div>
-        {/* <div class="col-md-3">
-          <div class="text-right">
-            <a>
-              <Link to="/login">
-                <button type="button" class="btn"> Login </button>
-              </Link>
-            </a>
-            <a>
-              <Link to="/about">
-                <button type="button" class="btn">About Us</button>
-              </Link>
-            </a>
-          </div>
-        </div> */}
-        <div class="col-md-1"></div>
+
+    <nav className="navbar navbar-expand-lg">
+
+      {/* NavBar Logo */}
+      <div className="navBarLogo">
+        <Link to="/home">
+          <img id="logo" className="animated infinite pulse" src={Logo.imageUrl} alt={Logo.name} />
+        </Link>
       </div>
 
-      <Link to="/"><button type="button" class="btn"> Home - Sign Up</button></Link>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+      {/* NavBar Header */}
+      <div className="navBarHeader">
+        <h1 id="logoText" className="animated infinite pulse"> Hate&Date</h1>
+      </div>
+
+      {/* NavBar Buttons */}
+      <div className="navBarBtnWrapper">
+        <ul className="navBarBtnList">
           {loggedIn ?
-            <li className="nav-item">
-              <a className="nav-item nav-link" href="#" onClick={logout}>Logout</a>
-            </li>
+            <li><Link to="/logout"><button className="navBarBtn">Logout</button></Link></li>
             :
             [
-              // Original Franklin Code...
-              // <li key="signup" className="nav-item">
-              //   <Link className="nav-item nav-link" to="/signup">Signup</Link>
-              // </li>,
-              // Luis: Updated code...
-              <li key="about" className="nav-item">
-                <Link className="nav-item nav-link" to="/about"><button type="button" class="btn"> About </button></Link>
-              </li>,
-              <li key="feed" className="nav-item">
-                <Link className="nav-item nav-link" to="/feed"><button type="button" class="btn"> Feed </button></Link>
-              </li>,
-              <li key="profile" className="nav-item">
-                <Link className="nav-item nav-link" to="/profile"> <button type="button" class="btn"> Profile </button></Link>
-              </li>,
-              <li key="login" className="nav-item">
-                <Link className="nav-item nav-link" to="/login"> <button type="button" class="btn"> Login </button></Link>
-              </li>
+              <li key="home"><Link to="/"><button className="navBarBtn">Home</button></Link></li>,
+              <li key="about"><Link to="/about"><button className="navBarBtn">About</button></Link></li>,
+              <li key="feed"><Link to="/feed"><button className="navBarBtn">Feed</button></Link></li>,
+              <li key="login"><Link to="/login"> <button className="navBarBtn">Login</button></Link></li>,
+              <li key="profile"><Link to="/profile"> <button className="navBarBtn">Profile</button></Link></li>
             ]
           }
         </ul>
       </div>
+
+ 
     </nav>
-  );
-}
+
+  ); // End of Return
+
+}; // End of NavBar Component
 
 export default NavBar;
