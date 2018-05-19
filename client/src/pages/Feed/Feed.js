@@ -10,9 +10,9 @@ const Feed = () => (
 
     <Wrapper>
 
-  <CatButton />
+        <CatButton />
         <Row>
-            <Col size="md" span="8">  
+            <Col size="md" span="8">
                 <Post
                     image="https://www.publicdomainpictures.net/pictures/30000/velka/portrait-of-a-man-1331296473U9x.jpg"
                     name="Mr Man"

@@ -8,7 +8,7 @@ class App extends Component {
     state = {
         Team
     };
-    render() { 
+    render() {
         return (
             <Wrapper>
                 {this.state.Team.map(team => (
