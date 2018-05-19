@@ -5,9 +5,9 @@ import "./Mission.css"; // Mission Statement CSS
 // Luis: Starter Code
 const Mission = () => (
 
-    <div>
+    <div className="about">
 
-        <center><h2 class="mission">Our Mission</h2> </center>
+        <center><h2 className="mission">Our Mission</h2> </center>
         <p>Hate&ampDate is an application to work under the principle that mutual dislikes bring people closer than shared interests.
         Almost every dating app collects information regarding people's passions and hobbies. However, even if you and
         a 'match' love many of the same things, if you disagree on one thing you hate, your match would be ruined. So instead,

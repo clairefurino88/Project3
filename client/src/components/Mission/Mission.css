@@ -1,1 +1,13 @@
 /* Mission Statement Styling */
+.mission{
+    font-style: italic;
+   }
+   .about {
+    /* margin-top: 75px; */
+    border-radius: 5%;  
+    text-align: justify;
+    /* text-indent: 60px; */
+    color: #ffffff;
+    font-style: italic;
+    font-size: 15px;
+   }

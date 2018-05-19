@@ -28,8 +28,9 @@ const SignUpForm = ({
   return (
 
     <div>
-      <h1>Signup</h1>
-      <form className="signup" onSubmit={this.handleSignup}>
+
+      <form className="sign_up" onSubmit={this.handleSignup}>
+        <h1>Signup</h1>
         <div className="form-group">
           <label for="name">Name</label>
           <input name="name" className="form-control" placeholder="Enter your name..." onChange={this.handleInputChange} value={name} type="name" required />
@@ -62,7 +63,7 @@ const SignUpForm = ({
           <label for="bio">About You</label>
           <textarea name="bio" className="form-control" placeholder="Say something about yourself..." onChange={this.handleInputChange} value={bio} type="text" required />
         </div>
-        <button>Submit</button>
+        <button className="btn btn-signUp">Submit</button>
       </form>
     </div>
 
