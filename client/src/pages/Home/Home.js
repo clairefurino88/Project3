@@ -20,7 +20,7 @@ class Home extends React.Component {
     occupation: "",
     relationshipType: "",
     location: "",
-    imageUrl: "",
+    photoUrl: "",
     bio: ""
 
   }
@@ -64,7 +64,7 @@ class Home extends React.Component {
               occupation={this.state.occupation}
               relationshipType={this.state.relationshipType}
               location={this.state.location}
-              imageUrl={this.state.imageUrl}
+              photoUrl={this.state.photoUrl}
               bio={this.state.bio}
             />
           </Col>
