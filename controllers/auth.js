@@ -8,10 +8,10 @@ const router = require("express").Router();
 
 // Get Logged On User Info
 router.get("/getuser", (req, res) => {
-  if(req.user){
+  if (req.user) {
     res.json({ user: req.user });
-  }else{
-    res.json({user: null })
+  } else {
+    res.json({ user: null })
   }
 });
 
@@ -22,7 +22,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 });
 
 // Log Out User
-router.get('/logout', function(req, res){
+router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });

@@ -6,7 +6,7 @@ import Video from "./video_background.json";
 import "./Login.css"; // Login Page CSS
 
 class Login extends React.Component {
-  
+
   state = {
     email: "",
     password: "",
