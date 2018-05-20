@@ -37,7 +37,16 @@ class Home extends React.Component {
 
   handleSignUp = event => {
     event.preventDefault();
-    API.signUp({ email: this.state.email, password: this.state.password })
+    API.signUp({
+      name: event.target.name.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+      occupation: event.target.occupation.value,
+      relationshipType: event.target.relationshipType.value,
+      location: event.target.location.value,
+      imageUrl: event.target.photoUrl.value,
+      bio: event.target.bio.value
+    })
       .then(() => this.setState({
         redirectTo: "/login"
       }));
@@ -53,7 +62,7 @@ class Home extends React.Component {
       <Wrapper>
         <Row>
           <Col size="md" span="6">
-            <Mission/>
+            <Mission />
           </Col>
           <Col size="md" span="6">
             <SignUpForm
@@ -79,43 +88,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-// Original Franklin Starter Code
-// const styles = {
-//   header: {
-//     color: "green",
-//     borderStyle: "solid",
-//     borderWidth: "1px",
-//     textAlign: "center"
-//   }
-// }
-
-// export default ({ loggedIn = false, user }) => {
-//   return (
-//     !loggedIn ?
-//       <Wrapper>
-//         <Row>
-//           <Col offset={3}>
-//             <h1>Home/Sign-Up Page</h1>
-//             <br />
-//             <h4>Rendering:</h4>
-//             <h4><ol>
-//               <li>Mission Statement</li>
-//               <li>Sign-Up Form</li>
-//             </ol>
-//             </h4>
-//           </Col>
-//         </Row>
-//       </Wrapper>
-//       :
-//       <Wrapper>
-//         <Row>
-//           <Col>
-//             <h1 style={styles.header}>You are successfully logged in {user.email}!</h1>
-//           </Col>
-//         </Row>
-//       </Wrapper>
-//   );
-// }
-// 
-// export default SignUpForm;

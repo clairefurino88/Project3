@@ -11,7 +11,7 @@ const logger = require("morgan")("tiny");
 // Luis: Requiring ./models
 const db = require("./models");
 
-const { auth } = require("./controllers");
+const { api, auth } = require("./controllers");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -35,7 +35,8 @@ app.use(passport.session());
 app.use(logger);
 
 //controllers
-app.use("/auth", auth);
+app.use("/api", api); // API Routes
+app.use("/auth", auth); // Client\User Routes
 
 //#endregion MIDDLEWARE
 

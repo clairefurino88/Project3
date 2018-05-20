@@ -25,20 +25,25 @@ const NavBar = ({ loggedIn, logout }) => {
       <div className="navBarBtnWrapper">
         <ul className="navBarBtnList">
           {loggedIn ?
-            <li><Link to="/logout"><button className="navBarBtn">Logout</button></Link></li>
+            [
+              <li key="about"><Link to="/about"><button className="navBarBtn">About</button></Link></li>,
+              <li key="feed"><Link to="/feed"><button className="navBarBtn">Feed</button></Link></li>,
+              <li key="profile"><Link to="/profile"> <button className="navBarBtn">Profile</button></Link></li>,
+              <li key="logout"><Link to="/"><button className="navBarBtn" onClick={logout}>Logout</button></Link></li>
+            ]
             :
             [
               <li key="home"><Link to="/"><button className="navBarBtn">Home</button></Link></li>,
               <li key="about"><Link to="/about"><button className="navBarBtn">About</button></Link></li>,
               <li key="feed"><Link to="/feed"><button className="navBarBtn">Feed</button></Link></li>,
-              <li key="login"><Link to="/login"> <button className="navBarBtn">Login</button></Link></li>,
-              <li key="profile"><Link to="/profile"> <button className="navBarBtn">Profile</button></Link></li>
+              <li key="profile"><Link to="/profile"> <button className="navBarBtn">Profile</button></Link></li>,
+              <li key="login"><Link to="/login"> <button className="navBarBtn">Login</button></Link></li>
             ]
           }
         </ul>
       </div>
 
- 
+
     </nav>
 
   ); // End of Return

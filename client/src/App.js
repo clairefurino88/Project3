@@ -11,7 +11,7 @@ class App extends React.Component {
     loggedIn: false,
     user: null,
     email: "",
-    password: "",
+    password: ""
   }
 
   setUser = (user) => {
@@ -33,7 +33,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    API.getCurrentUser()
+    API.getLoggedOnUser()
       .then(res => {
         this.setState({
           user: res.data.user,
