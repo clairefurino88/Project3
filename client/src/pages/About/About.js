@@ -11,24 +11,31 @@ class App extends Component {
     render() {
         return (
             <Wrapper>
-                {this.state.Team.map(team => (
-                    <DevCard
-                        id={team.id}
-                        name={team.name}
-                        image={team.image}
-                        email={team.email}
-                        gitHub={team.gitHubUrl}
-                        linkedIn={team.linkedInUrl}
-                    />
-                ))}
+                <h1 className="devText">Meet the Team</h1>
+                <Row>
+                    <Col sm={{ size: 6, order: 2, offset: 1 }}></Col>
 
-                <div className="twitterTimeline">
-                    <a className="twitter-timeline" data-width="270" data-height="470" href="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"> Follow us on Twitter </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
+                    {this.state.Team.map(team => (
+                        <DevCard
+                            id={team.id}
+                            name={team.name}
+                            image={team.image}
+                            email={team.email}
+                            gitHub={team.gitHubUrl}
+                            linkedIn={team.linkedInUrl}
+                        />
+                    ))}
 
+                    <div className="twitterTimeline">
+                        <a className="twitter-timeline" data-width="270" data-height="470" href="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"> Follow us on Twitter </a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+
+
+                </Row>
 
             </Wrapper>
+
         );
     }
 }
