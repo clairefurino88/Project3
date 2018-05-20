@@ -7,7 +7,9 @@ const UserInfo = ({image, name, email, occupation, relationshipType, location, b
 
     <Wrapper>
         <div style={{
-        backgroundColor:'grey', 
+        background:'linear-gradient(to bottom left, #D572CC, #452846)',
+        display:'block',
+        boxShadow:'0 2px 4px 0 rgba(38, 47, 42, 1), 0 6px 15px 0 rgba(0, 0, 0, 0.19',
         borderRadius:'2%'}} className="userDiv">
         <br />
         <strong style={{
@@ -23,7 +25,7 @@ const UserInfo = ({image, name, email, occupation, relationshipType, location, b
         borderTopLeftRadius:'3px'}}>About Me</strong>
         <br />
         <br />
-        <img style={{ 
+        <img style={{
         maxWidth:'300px', 
         maxHeight:'300px', 
         minWidth:'300px', 
@@ -36,28 +38,44 @@ const UserInfo = ({image, name, email, occupation, relationshipType, location, b
         <br />
         <br />
         <strong style={{
-        paddingLeft:'5px'}}>Name:</strong> <p style={{color:'white', 
-        paddingLeft:'5px', marginBottom:'0', fontSize:'17px'}}>{name}</p>
+        paddingLeft:'10px',
+        color:'grey'}}>Name:</strong> <p style={{color:'white', 
+        paddingLeft:'10px', marginBottom:'0', fontSize:'17px'}}>{name}</p>
         <br />
         <strong style={{
-        paddingLeft:'5px'}}>Email:</strong> <p style={{color:'white', 
-        paddingLeft:'5px', marginBottom:'0', fontSize:'17px'}}>{email}</p>
+        paddingLeft:'10px',
+        color:'grey'}}>Email:</strong> <p style={{color:'white', 
+        paddingLeft:'10px', marginBottom:'0', fontSize:'17px'}}><a href="#" style={{color:'#F8FE99'}}>{email}</a></p>
         <br />
         <strong style={{
-        paddingLeft:'5px'}}>Occupation:</strong> <p style={{color:'white', 
-        paddingLeft:'5px', marginBottom:'0', fontSize:'17px'}}>{occupation}</p>
+        paddingLeft:'10px',
+        color:'grey'}}>Occupation:</strong> <p style={{color:'white', 
+        paddingLeft:'10px', marginBottom:'0', fontSize:'17px'}}>{occupation}</p>
         <br />
         <strong style={{
-        paddingLeft:'5px'}}>Looking for:</strong> <p style={{color:'white', 
-        paddingLeft:'5px', marginBottom:'0', fontSize:'17px'}}>{relationshipType}</p>
+        paddingLeft:'10px',
+        color:'grey'}}>Looking for:</strong> <p style={{color:'white', 
+        paddingLeft:'10px', marginBottom:'0', fontSize:'17px'}}>{relationshipType}</p>
         <br />
         <strong style={{
-        paddingLeft:'5px'}}>Location:</strong> <p style={{color:'white', 
-        paddingLeft:'5px', marginBottom:'0', fontSize:'17px'}}>{location}</p>
+        paddingLeft:'10px',
+        color:'grey'}}>Location:</strong> <p style={{color:'white', 
+        paddingLeft:'10px', marginBottom:'0', fontSize:'17px'}}>{location}</p>
         <br />
         <strong style={{
-        paddingLeft:'5px'}}>Bio:</strong> <p style={{color:'white', 
-        paddingLeft:'5px', marginBottom:'0', fontSize:'17px'}}>{bio}</p>
+        paddingLeft:'10px',
+        color:'grey'}}>Bio:</strong> <p style={{color:'white', 
+        paddingLeft:'10px', paddingBottom:'5px', marginBottom:'0', fontSize:'17px'}}>{bio}</p>
+        </div>
+        <br />
+        <br />
+        <div className="userPosts" 
+        style={{
+        background:'linear-gradient(to bottom left, #D572CC, #452846)',
+        display:'block',
+        boxShadow:'0 2px 4px 0 rgba(38, 47, 42, 1), 0 6px 15px 0 rgba(0, 0, 0, 0.19',
+        borderRadius:'2%'}}>
+        <p style={{color:'white'}}>**WHERE USER POSTS WILL GO**</p>
         </div>
         {/* <h1>Profile Page User Info</h1>
         <br />
