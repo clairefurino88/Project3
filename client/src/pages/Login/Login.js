@@ -2,7 +2,6 @@ import React from "react"
 import { Link, Redirect } from "react-router-dom"
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import API from "../../utils/API";
-import Video from "./video_background.json";
 import "./Login.css"; // Login Page CSS
 
 class Login extends React.Component {
@@ -58,10 +57,6 @@ class Login extends React.Component {
               <br />
               <Link to="/"><p>Or Sign Up Here</p></Link>
             </div>
-            {/* <video autoplay loop id="video-background" muted plays-inline>
-            <source src={Video.videoUrl}
-            type="video/mp4" />
-            </video> */}
           </Col>
         </Row>
       </Wrapper>

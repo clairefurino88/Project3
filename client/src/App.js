@@ -43,12 +43,9 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
 
-      // <div>
-      //   <NavBar />
-      //   <h1>Testing App</h1>
-      // </div>
       <Router>
         <div>
           <NavBar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
@@ -63,9 +60,11 @@ class App extends React.Component {
           <Route exact path="/login" render={() => <Login setUser={this.setUser} />} /> */}
         </div>
       </Router>
-    );
-  };
 
-};
+    ); // End of return()
+
+  }; // End of render()
+
+}; // End of App.js class component
 
 export default App;

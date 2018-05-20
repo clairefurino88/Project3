@@ -21,7 +21,7 @@ const DevCard = props => (
                             <i style={{ fontSize: "30px" }} className="fab fa-linkedin"></i>
                         </a>
                         <a href={props.gitHub} target="blank">
-                            <i style={{ fontSize: "30px" }} class="fab fa-github"></i>
+                            <i style={{ fontSize: "30px" }} className="fab fa-github"></i>
                         </a>
                         <li className="devList">
                             {props.email}
