@@ -53,12 +53,12 @@ class Home extends React.Component {
   }
 
   render() {
-    // Console.log Props
-    this.consoleLogProps();
-    if (this.state.redirectTo != "") {
-      return <Redirect to={this.state.redirectTo} />
-    }
+
+    if (this.state.loggedIn) return <Redirect to="/feed"/>
+    if (this.state.redirectTo) return <Redirect to={this.state.redirectTo}/>    
+
     return (
+
       <Wrapper>
         <Row>
           <Col size="md" span="6">
@@ -79,12 +79,12 @@ class Home extends React.Component {
             />
           </Col>
         </Row>
-        {/* <video autoplay loop id="video-background" muted plays-inline>
-        <source src={Video} type="video/mp4" />
-      </video> */}
       </Wrapper>
-    )
-  }
-}
+
+    ); // End of return()
+
+  }; // End of render()
+
+}; // End of home.js class component
 
 export default Home;
