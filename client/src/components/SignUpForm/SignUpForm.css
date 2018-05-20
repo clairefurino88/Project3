@@ -1,17 +1,8 @@
 /* Sign-Up Form Styling */
 
-.form-control {
-    height: 28px;
+#location-input {
+    height: 30px;
 }
-
-.form-group {
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    text-shadow: 1px 1px #262f2a;
-}
-
 .signUpBtn {
     background-color: rgb(252, 250, 132);
     border: none;
@@ -21,6 +12,7 @@
     font-family: inherit;
     font-size: 11px;
     font-weight: bold;
+    margin-top: 10px;
     outline: none;
     padding: 7px 0px;
     text-transform: uppercase;
@@ -42,7 +34,27 @@
     border-radius: 10px;
     color: white;
     margin: 0px 20px;
-    padding: 20px 15px;
+    padding: 20px 33px;
+}
+
+.signUpForm .form-group {
+    margin: 0 0 7px 0;
+}
+
+.signUpForm .form-control {
+    height: 28px;
+}
+
+.signUpForm label {
+    text-shadow: 1px 1px #262f2a;
+}
+
+.signUpFormBtnWrapper {
+    text-align: center;
+}
+
+#signUpFormTextBox {
+    height: 40px;
 }
 
 .signUpFormHeader {
@@ -52,7 +64,7 @@
     font-style: italic;
     font-weight: bold;
     margin: 0;
-    padding: 10px;
+    padding: 10px 0 27px;
     text-align: center;
     text-shadow: 1px 1px #262f2a;
 }
