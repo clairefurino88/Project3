@@ -19,35 +19,37 @@ const Post = ({ image, name, category, timeStamp, comment }) => (
     //             <li>Comment</li>
     //         </ol>
     //     </h4> */}
-    
-        <div>
-            <div className="postContainer">
-            <h4>Hate Feed</h4>
-            <p>Share your story...</p>
+
+    <div>
+        <div className="postContainer">
+            <p id="liveFeedTitle" class="hate-feed">Hate Feed</p>
+            <p id="share">Share your story...</p>
             {/* <Row> */}
-                {/* <Col size="md" span="6"> */}
-                    <div className="panel post-panel">
+            {/* <Col size="md" span="6"> */}
+            <div className="panel post-panel">
 
-                        <div className="panel-body">
-                            <Row>
-                                <Col size="md" span="2">
-                                    <img className="postimg" src={image} alt={name} />
-                                </Col>
-                                <Col size="md" span="5">
-                                    {name}
-                                </Col>
-                            </Row>
+                <div className="panel-body">
+                    <Row>
+                        <Col size="md" span="2">
+                            <img className="postimg" src={image} alt={name} />
+                        </Col>
+                        
+                        <Col size="md" span="5">
+                            {name}
+                        </Col>
+                    </Row>
 
-                            {timeStamp}
-                            <div className="panel-body">
-                                {category}
-                                <br />
-                                {comment}
+                    {timeStamp}
+                    <hr/>
+                    <div className="panel-body">
+                        {category}
+                        <br />
+                        {comment}
 
-                            </div>
-                        </div>
                     </div>
-                {/* </Col> */}
+                </div>
+            </div>
+            {/* </Col> */}
 
             {/* </Row> */}
         </div>
