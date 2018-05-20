@@ -1,19 +1,10 @@
 import axios from "axios";
 
 export default {
-  getCurrentUser: function(){
-    return axios.get("/auth/getUser");
-  },
+
+  getLoggedOnUser: () => { return axios.get("/auth/getUser"); },
+  login: (user) => { return axios.post("/auth/login", user) },
+  logout: () => { return axios.get("/auth/logout"); },
+  signUp: (newUser) => { return axios.post("/auth/signup", newUser) }
   
-  signUp: (newUser) => {
-    return axios.post("/auth/signup", newUser)
-  },
-
-  login: (user) => {
-    return axios.post("/auth/login", user)
-  },
-
-  logout: () => {
-    return axios.get("/auth/logout");
-  }
 }

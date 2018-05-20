@@ -1,20 +1,12 @@
 import React from "react"
-import { Redirect } from "react-router-dom"
-// import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
+import { Link, Redirect } from "react-router-dom"
+import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import API from "../../utils/API";
 import Video from "./video_background.json";
 import "./Login.css"; // Login Page CSS
 
-// const styles = {
-//   header: {
-//     color: "purple",
-//     borderStyle: "solid",
-//     borderWidth: "1px",
-//     textAlign: "center"
-//   }
-// }
-
 class Login extends React.Component {
+  
   state = {
     email: "",
     password: "",
@@ -30,78 +22,54 @@ class Login extends React.Component {
     event.preventDefault();
     API.login({ email: this.state.email, password: this.state.password })
       .then((res) => {
-        console.log("RES", res);
+        console.log("RES.data", res.data);
         this.props.setUser(res.data)
         this.setState({
-          redirectTo: "/"
+          redirectTo: "/feed"
         });
       });
   }
 
   render() {
+
     if (this.state.redirectTo) {
       return <Redirect to={this.state.redirectTo} />
     }
+
     return (
-      <div>
-        <div className="container content">
-          <div className="row">
-            <div className="col-md-6 col-md-offset-3 login-form">
-              <h2>Login Form</h2>
-              <form className="login" onSubmit={this.handleSubmitForm}>
+
+      <Wrapper>
+        <Row>
+          <Col size="md" span="3"></Col>
+          <Col size="md" span="6">
+            <div className="loginForm">
+              <h2 id="loginFormHeader">Login Form</h2>
+              <form onSubmit={this.handleLogin}>
                 <div className="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input className="form-control" id="password-input" name="email" type="text" value={this.state.email} onChange={this.handleInputChange} />
+                  <label htmlFor="email">Email address</label>
+                  <input name="email" className="form-control" type="text" value={this.state.email} onChange={this.handleInputChange} />
                 </div>
                 <div className="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input className="form-control" id="password-input" name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+                  <label htmlFor="password">Password</label>
+                  <input name="password" className="form-control" type="password" value={this.state.password} onChange={this.handleInputChange} />
                 </div>
-                <button className="btn btn-login" onClick={this.handleLogin}>Login</button>
+                <button className="loginBtn" type="submit">Login</button>
               </form>
               <br />
-              <a href="/">
-                <p><u>Or Sign Up Here</u></p>
-              </a>
-              <br />
+              <Link to="/"><p>Or Sign Up Here</p></Link>
             </div>
-          </div>
-        </div>
-        {/* <video autoplay loop id="video-background" muted plays-inline>
-          <source src={Video.videoUrl}
+            {/* <video autoplay loop id="video-background" muted plays-inline>
+            <source src={Video.videoUrl}
             type="video/mp4" />
-        </video> */}
-      </div>
-      // <Wrapper>
-      //   <Row>
-      //     <Col>
-      //       <h1>Login Form</h1>
-      //     </Col>
-      //   </Row>
-      //   <Row>
-      //     <Col span={2} offset={3}>
-      //       <label>Email: </label>
-      //     </Col>
-      //     <Col span={3}>
-      //       <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange} />
-      //     </Col>
-      //   </Row>
-      //   <Row>
-      //     <Col span={2} offset={3}>
-      //       <label>Password: </label>
-      //     </Col>
-      //     <Col span={4}>
-      //       <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
-      //     </Col>
-      //   </Row>
-      //   <Row>
-      //     <Col span={2} offset={3}>
-      //       <button onClick={this.handleLogin}>Submit</button>
-      //     </Col>
-      //   </Row>
-      // </Wrapper>
-      );
-  }
-}
+            </video> */}
+          </Col>
+        </Row>
+      </Wrapper>
+
+    ); // End of Return
+
+  }; // End of render()
+
+}; // End of Class Login Component
 
 export default Login;

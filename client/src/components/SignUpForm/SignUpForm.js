@@ -45,10 +45,6 @@ const SignUpForm = ({
           <label htmlFor="relationshipType">Relationship Type</label>
           <input name="relationshipType" className="form-control" placeholder="What kind of relationship are you looking for?" onChange={handleInputChange} value={relationshipType} type="text" required />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="location">Location</label>
-          <input name="location" className="form-control" placeholder="Location..." onChange={handleInputChange} value={location} type="text" required />
-        </div> */}
         <div className="form-group">
           <label htmlFor="location">Location</label>
           <select name="location" id="location-input" className="form-control selectpicker" onChange={handleInputChange} value={location}>

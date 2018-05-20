@@ -5,7 +5,7 @@ const passport = require("passport");
 
 // Luis: Updated code...
 const LocalStrategy = require("passport-local").Strategy;
-const router = require("express").Router();
+// const router = require("express").Router();
 
 const db = require("../models");
 
@@ -14,22 +14,12 @@ const db = require("../models");
 //   done(null, user.id);
 // });
 
-// Luis: Updated code...
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-
 // Luis: Original Franklin code...
 // passport.deserializeUser(function (id, done) {
 //   db.User.findById(id, function (err, user) {
 //     done(err, user);
 //   });
 // });
-
-// Luis: Updated code...
-passport.deserializeUser(function (obj, done) {
-  done(null, obj);
-});
 
 // Luis: Original Franklin code...
 // passport.use(new LocalStrategy({
@@ -54,12 +44,14 @@ passport.use(new LocalStrategy(
     usernameField: "email"
   },
   function (email, password, done) {
+
+    console.log("passport.js > passed!");
     db.User.findOne({
       where: { email: email }
     })
-      .then((error, dbUser) => {
+      .then((dbUser) => {
 
-        if (error) return done(error);
+        console.log("passport.js 'dbUser': ", dbUser);
         if (!dbUser) return done(null, false, { message: 'Incorrect username.' });
         if (!dbUser.validPassword(password)) return done(null, false, { message: 'Incorrect password.' });
 
@@ -77,5 +69,14 @@ passport.use(new LocalStrategy(
 
       });
   }));
+
+  // Luis: Updated code...
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (obj, done) {
+  done(null, obj);
+});
 
 module.exports = passport;
