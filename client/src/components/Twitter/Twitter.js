@@ -1,24 +1,17 @@
 import React from "react";
-import { Col, Row, Wrapper } from "../BootstrapGrid";
+import { Link } from "react-router-dom";
+// import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./Twitter.css"; // Twitter Feed CSS
 
 // Luis: Starter Code
 const Twitter = () => (
 
-    <Wrapper>
-
-        <h1>Twitter Feed</h1>
-        <br />
-        <h4>Route: '/about'</h4>
-        <h4>Rendering Twitter Feed:
-            <ol>
-                <li>Header</li>
-                <li>Tweets</li>
-                <li>Twitter Links</li>
-            </ol>
-        </h4>
-
-    </Wrapper>
+    <div className="twitterTimeline">
+        <Link to="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"
+            className="twitter-timeline" data-width="270" data-height="470">Follow us on Twitter</Link>
+        {/* <a className="twitter-timeline" data-width="270" data-height="470" href="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"> Follow us on Twitter </a> */}
+        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+    </div>
 
 );
 

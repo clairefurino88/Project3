@@ -1,35 +1,39 @@
 /* Developer Card Styling */
 
+.devText {
+    margin-left: 180px;
+    color: white;
+}
 
 .devCard {
     background: #fff;
     border-radius: 2px;
-    height: 325px;
+    height: 235px;
     margin: 1rem;
-    margin-right: 0px;
+    /* margin-right: 0px; */
     position: relative;
-    width: 325px;
+    width: 180px;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     text-align: left;
     padding: 0px;
-    width: 30%;
+    float: left;
   }
 
 .devCard > .img-container {
-    height: 60%;
-    overflow: hidden;
+    height: 50%;
+    /* overflow: hidden; */
     text-align: center;
     /* background: purple; */
-    background: linear-gradient(to bottom right, yellow, rgb(203, 3, 203));
+    background: linear-gradient(to bottom right, rgb(203, 3, 203), blue);
   }
 
 .devCard > .img-container > img {
-    width: 50%
+    width: 40%;
   }
 
 #devCardImg {
-    width: 170px;
-    height: 185px;
+    width: 130px;
+    height: 130px;
     border: rgb(225, 206, 206);
     border-style: groove;
     border-width: 7px;
@@ -39,7 +43,7 @@
 .devCard > .devContent {
     padding-left: 0rem;
     padding-right: 0rem;
-    font-size: 15px;
+    font-size: 12px;
     text-align: center;
   }
   
@@ -49,11 +53,17 @@
   }
   
 .devCard > .devContent > ul > li {
-    margin-top: 5px;
+    margin-top: 0px;
     font-family: Roboto, sans-serif;
   }
+
+.devContent {
+    margin-top: 15px;
+}
   
 .fa-linkedin {
+    margin-top: 10px;
+    margin-bottom: 0px;
     padding: 5px;
     margin-left: 10px;
   }
@@ -62,9 +72,7 @@
   padding: 5px;
   }
 
-.devTag {
-    margin: 0;
-  }
+
 
 
   

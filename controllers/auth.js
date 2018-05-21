@@ -8,10 +8,10 @@ const router = require("express").Router();
 
 // Get Logged On User Info
 router.get("/getuser", (req, res) => {
-  if(req.user){
+  if (req.user) {
     res.json({ user: req.user });
-  }else{
-    res.json({user: null })
+  } else {
+    res.json({ user: null })
   }
 });
 

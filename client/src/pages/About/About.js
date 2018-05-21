@@ -1,79 +1,51 @@
-import React, { Component } from "react";
+import React from "react";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import DevCard from "../../components/DevCard";
+import Twitter from "../../components/Twitter";
 import Team from "./Team.json"; // Developer Team Info
 import "./About.css"; // About Page CSS
 
-class App extends Component {
-    state = {
-        Team
-    };
-    render() {
-        return (
-            <Wrapper>
-                {this.state.Team.map(team => (
-                    <DevCard
-                        id={team.id}
-                        name={team.name}
-                        image={team.image}
-                        email={team.email}
-                        gitHub={team.gitHubUrl}
-                        linkedIn={team.linkedInUrl}
-                    />
-                ))}
+const About = () => {
 
-                <div className="twitterTimeline">
-                    <a className="twitter-timeline" data-width="270" data-height="470" href="https://twitter.com/hate_and_date?ref_src=twsrc%5Etfw"> Follow us on Twitter </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
+    return (
 
+        <Wrapper>
 
-            </Wrapper>
-        );
-    }
-}
-export default App;
+            <Row>
+                <Col size="md">
+                    <h1 className="devText">Meet the Team</h1>
+                </Col>
+            </Row>
 
+            <Row>
+                {/* Developer Card Column */}
+                <Col size="md" span="7">
+                    {Team.map(team => (
+                        <DevCard
+                            key={team.id}
+                            id={team.id}
+                            name={team.name}
+                            image={team.image}
+                            email={team.email}
+                            gitHub={team.gitHubUrl}
+                            linkedIn={team.linkedInUrl}
+                        />
+                    ))}
+                </Col>
 
-// Luis: Starter Code
-// const About = () => (
+                {/* Empty Column */}
+                <Col size="md" span="1"> </Col>
 
-//     <Wrapper>
+                <Col size="md" span="4">
+                    <Twitter />
+                </Col>
 
-/* 
-        { const TeamList = Team.map((member) => {
-        return (
-           <div className="TeamList" key={member.id}>
-            < div className="imageButton" onClick={confirmClick}>
-                <img id={Team.id} src={Team.image} alt={Team.name} email={Team.email} >
-                </div>
-           
-        </div>
-        );
-   });
-   } */
-/* <Row>
-            <Col size="md" span="4">
-                <DevCard />
-            </Col>
-            <Col size="md" span="4">
-                <DevCard />
-            </Col>
-            <Col size="md" span="4">
-                <DevCard />
-            </Col>
-        </Row>
-        <Row>
-            <Col size="md" span="4">
-                <DevCard />
-            </Col>
-            <Col size="md" span="4">
-                <DevCard />
-            </Col>
-        </Row> */
+            </Row>
 
+        </Wrapper>
 
+    ); // End of return()
 
+}; // End of About.js functional component
 
-
-
+export default About;

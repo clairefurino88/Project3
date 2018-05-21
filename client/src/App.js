@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import API from "./utils/API";
 import { NavBar } from "./components";
 import { About, Feed, Home, Login, Profile } from "./pages"
@@ -42,6 +42,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
 
       <Router>
@@ -58,9 +59,11 @@ class App extends React.Component {
           <Route exact path="/login" render={() => <Login setUser={this.setUser} />} /> */}
         </div>
       </Router>
-    );
-  };
 
-};
+    ); // End of return()
+
+  }; // End of render()
+
+}; // End of App.js class component
 
 export default App;

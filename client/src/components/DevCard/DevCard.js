@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, Row, Wrapper } from "../BootstrapGrid";
-import About from "../../pages/About";
+// import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./DevCard.css"; // Developer Card CSS
 
 // Luis: Starter Code
@@ -21,7 +20,7 @@ const DevCard = props => (
                             <i style={{ fontSize: "30px" }} className="fab fa-linkedin"></i>
                         </a>
                         <a href={props.gitHub} target="blank">
-                            <i style={{ fontSize: "30px" }} class="fab fa-github"></i>
+                            <i style={{ fontSize: "30px" }} className="fab fa-github"></i>
                         </a>
                         <li className="devList">
                             {props.email}
