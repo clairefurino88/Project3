@@ -5,7 +5,6 @@ import Post from "../../components/Post";
 import CatButton from "../../components/CatButton";
 import PostForm from "../../components/PostForm";
 
-// Luis: Starter Code
 const Feed = () => (
 
     <Wrapper>
@@ -34,14 +33,3 @@ const Feed = () => (
 );
 
 export default Feed;
-
-{/* <h1>Feed Page</h1>
-        <br />
-        <h4>Route: '/feed'</h4>
-        <h4>Rendering:
-            <ol>
-                <li>  </li>
-                <li>  </li>
-                <li>  </li>
-            </ol>
-        </h4> */}

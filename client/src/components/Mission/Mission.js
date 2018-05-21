@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Wrapper } from "../BootstrapGrid";
+// import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./Mission.css"; // Mission Statement CSS
 
 const Mission = () => (
