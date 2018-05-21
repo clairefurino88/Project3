@@ -5,9 +5,9 @@ import "./CatButton.css"; // Category Button CSS
 // Luis: Starter Code
 const CatButton = () => (
 <nav className="navbar navbar-expand-lg navbar-light bg-light" id="catButton">
-<a className="navbar-brand" id="categoryButtons">
+<a className="navbar-brand" id="catBar">
 <div>
-    <ul className="navbar-nav">
+    <ul className="navbar-nav" id="categoryButtons">
 <li>All</li>
 <li>Coding</li>
 <li>Education</li>
