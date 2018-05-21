@@ -28,11 +28,14 @@
     }
 
 #logoText {
-    color: white;
-    font-family: 'Bree Serif', serif;
+    color: #fcfa84;
+    /* font-family: 'Bree Serif', serif; */
+    font-family: 'Ultra', serif;
     margin-left: 25px;
     margin-top: 0px;
     text-shadow: 3px 3px #262f2a;
+    /* font-weight: bolder; */
+    /* font-style: oblique;         */
      
 }
 

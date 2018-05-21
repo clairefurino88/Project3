@@ -12,13 +12,13 @@ const NavBar = ({ loggedIn, logout }) => {
       {/* NavBar Logo */}
       <div className="navBarLogo">
         <Link to="/home">
-          <img id="logo"  src={Logo.imageUrl} alt={Logo.name} />
+          <img className="animated infinite pulse" id="logo"  src={Logo.imageUrl} alt={Logo.name} />
         </Link>
       </div>
 
       {/* NavBar Header */}
       <div className="navBarHeader">
-        <h1 id="logoText" > Hate&Date</h1>
+        <h1 id="logoText" > Gripe</h1>
       </div>
 
       {/* NavBar Buttons */}
