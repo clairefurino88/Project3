@@ -1,14 +1,15 @@
 import React from "react";
-// import DevCard from "../../components/DevCard";
 import UserInfo from "../../components/UserInfo";
+
 import Post from "../../components/Post";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
+
 import "./Profile.css"; // Profile Page CSS
 
-// Luis: Starter Code
 const Profile = () => (
 
     <Wrapper>
+
 
         <Row>
             {/*  User Information Column */}
@@ -38,11 +39,10 @@ const Profile = () => (
 
         </Row>
 
+
     </Wrapper>
 
 );
-
-export default Profile;
 
 {/* <h1>Profile Page</h1>
         <br />
@@ -53,3 +53,6 @@ export default Profile;
                 <li>All user posts</li>
             </ol>
         </h4> */}
+
+export default Profile;
+

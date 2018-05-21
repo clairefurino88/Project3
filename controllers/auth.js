@@ -22,7 +22,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 });
 
 // Log Out User
-router.get('/logout', function (req, res) {
+router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });

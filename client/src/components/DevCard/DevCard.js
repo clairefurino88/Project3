@@ -1,6 +1,5 @@
 import React from "react";
-import { Col, Row, Wrapper } from "../BootstrapGrid";
-import About from "../../pages/About";
+// import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./DevCard.css"; // Developer Card CSS
 
 // Luis: Starter Code

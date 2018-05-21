@@ -1,6 +1,8 @@
 import React from "react";
-import { Col, Row, Wrapper } from "../BootstrapGrid";
+// import { Col, Row, Wrapper } from "../BootstrapGrid";
+import { Wrapper } from "../BootstrapGrid";
 import "./UserInfo.css"; // Profile Page User Info CSS
+
 
 // Luis: Starter Code
 const UserInfo = ({ image, name, email, occupation, relationshipType, location, bio }) => (
@@ -25,6 +27,7 @@ const UserInfo = ({ image, name, email, occupation, relationshipType, location, 
         <p className="userInfo" > Bio: </p> <p className="userData">{bio}</p>
 
     </div>
+
 
 );
 

@@ -14,25 +14,29 @@
 /* NavBar Header and Logo Styling */
 
 #logo {
-    background: white;  
-    border: 1px;
-    border-color: white;
+    background: #7d3f95;  
+    /* border: 1px;
+    border-color: white; */
     border-radius: 50%;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 2px 4px 0 rgb(241, 238, 238), 0 6px 15px 0 rgb(247, 244, 244);
     cursor: pointer;
     font-size: 10px;
-    height: 70px;
+    height: 90px;
     margin: 10px;
     padding: 5px;
-    width: 70px;
-}
+    width: 90px;
+    }
 
 #logoText {
-    color: white;
-    font-family: 'Bree Serif', serif;
+    /* color: #fcfa84; */
+    /* font-family: 'Bree Serif', serif; */
+    /* font-family: 'Ultra', serif;
     margin-left: 25px;
     margin-top: 0px;
-    text-shadow: 3px 3px #262f2a;
+    text-shadow: 3px 3px #262f2a; */
+    /* font-weight: bolder; */
+    /* font-style: oblique;         */
+    height: 80px;     
 }
 
 /* NavBar Button\Link Styling */

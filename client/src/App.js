@@ -1,7 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import API from "./utils/API";
-// Luis: Modified Imports
 import { NavBar } from "./components";
 import { About, Feed, Home, Login, Profile } from "./pages"
 

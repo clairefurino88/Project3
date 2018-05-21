@@ -2,6 +2,14 @@ import axios from "axios";
 
 export default {
 
+  // API Routes (/api)
+  createPost: (post) => { return axios.post("/api/posts/new") },
+  deletePost: (postId) => { return axios.delete("/api/posts/delete")},
+  getAllPosts: () => { return axios.get("/api/posts/all"); },
+  getPostsByCat: (category) => { return axios.get("/api/posts/category"); },
+  getPostsByUser: (userId) => { return axios.get("/api/posts/user")},
+
+  // User Routes (/auth)
   getLoggedOnUser: () => { return axios.get("/auth/getUser"); },
   login: (user) => { return axios.post("/auth/login", user) },
   logout: () => { return axios.get("/auth/logout"); },
