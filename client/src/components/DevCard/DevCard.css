@@ -1,8 +1,12 @@
 /* Developer Card Styling */
 
 .devText {
-    margin-left: 180px;
+   text-align: center;
     color: white;
+}
+.devTextSocial {
+  text-align: center;
+   color: white;
 }
 
 .devCard {
