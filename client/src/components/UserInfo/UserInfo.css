@@ -1,27 +1,5 @@
 /* Profile Page User Info Styling */
-.userDiv {
-    background: linear-gradient(to bottom right, #e6a8f8, #a347af);
-    border-radius: 2%;
-    padding: 30px;
-}
-
-.userTitle {
-    padding: 30px;
-    font-size: 14px;
-    font-family: inherit;
-    font-weight: bold;
-    color: black;
-    background-color: rgb(252, 250, 132);
-    display: block;
-    box-shadow: 0 2px 4px 0 #262f2a, 0 6px 15px 0 rgba(0, 0, 0, 0.19);
-    padding: 10px 15px;
-    border-bottom: 1px solid transparent;
-    box-shadow: 3px 3px #262f2a;
-    border-radius: 4px;
-}
-
-.userImg { 
-    float: left;
+.userImg {
     max-width: 250px;
     max-height: 250px;
     min-width: 250px;
@@ -34,17 +12,17 @@
 }
 
 .userInfo {
-    margin-left: 300px;
+    margin: 0;
+    font-family: inherit;
     color: black;
     font-size: 17px;
-    margin-bottom: 0px;
 }
 
 .userData {
-    margin-left: 300px;
+    margin: 0;
+    font-family: inherit;
     color: white;
     font-size: 17px;
-    margin-bottom: 0px;
 }
 
 /* .userBox {
