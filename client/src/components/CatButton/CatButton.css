@@ -1,11 +1,19 @@
 /* Category Button Styling */
 #catButton {
-    margin-top: -40px;
+    margin-top: -48px;
     margin-left: -160px;
     width: 130%;
+    margin-bottom:0;
+}
+#catBar {
+    margin: 0;
+    padding: 0;
+
 }
 
-#categoryButtons {
+#categoryButtons > li{
     padding: 10px;
-
+    margin-left: 10px;
+    font-family: inherit;
+    text-align: center;
 }
