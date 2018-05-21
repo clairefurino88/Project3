@@ -1,8 +1,9 @@
 /* Developer Card Styling */
 
 .devText {
-    margin-left: 180px;
+    /* margin-left: 180px; */
     color: white;
+    text-align: center;
 }
 
 .devCard {
@@ -102,6 +103,9 @@ and (max-device-width : 480px) {
     }
     .devCard {
       width: 100%;
+    }
+    .devText {
+      width: 280px;
     }
 }
 /* iPad screens */
