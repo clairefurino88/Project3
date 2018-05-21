@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import DevCard from "../../components/DevCard";
 import Twitter from "../../components/Twitter";

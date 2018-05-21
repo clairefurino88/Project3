@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import { Col, Row, Wrapper } from "../BootstrapGrid";
+import React from "react";
+// import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./SignUpForm.css"; // Sign-Up Form CSS
-import API from "../../utils/API";
 
 const SignUpForm = ({
 
