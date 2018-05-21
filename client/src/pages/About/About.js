@@ -39,6 +39,7 @@ const About = () => {
                             email={team.email}
                             gitHub={team.gitHubUrl}
                             linkedIn={team.linkedInUrl}
+                            class={team.class}
                         />
                     ))}
                 </Col>
@@ -70,7 +71,7 @@ const About = () => {
 
                         <Link to="https://twitter.com/hate_and_date" target="_blank"
 
-                            className="twitter-timeline" data-width="270" data-height="470">
+                            className="twitter-timeline" className="socialLogo" data-width="270" data-height="470">
                             <img  width={60} height={60} alt="" src={gith} />
                         </Link>
                     </div>
