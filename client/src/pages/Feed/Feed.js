@@ -73,13 +73,22 @@ class Feed extends React.Component {
                 <CatButtons getPosts={this.getPostsByCategory} />
                 <Wrapper>
                     <Row>
+                        <Col size="md">
+                            {!this.state.posts.length ?
+                                <p className="feedHeader">No Stories...</p>
+                                :
+                                <p key="feedHeader" className="feedHeader">Stories...</p>
+                            }
+                        </Col>
+                    </Row>
+                    <Row>
                         {/* Feed column */}
                         <Col size="md" span="8">
                             {!this.state.posts.length ?
-                                (<p className="feedHeader">No Stories...</p>)
+                                ""
                                 :
-                                ([
-                                    <p key="feedHeader" className="feedHeader">Stories...</p>,
+                                (
+                                    // <p key="feedHeader" className="feedHeader">Stories...</p>,
                                     this.state.posts.map((post) => {
                                         return (
                                             <Post
@@ -93,7 +102,7 @@ class Feed extends React.Component {
                                             />
                                         );
                                     })
-                                ])
+                                )
                             };
                         </Col>
                         {/* Post form column */}
