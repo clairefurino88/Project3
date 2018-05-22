@@ -21,7 +21,7 @@ class Login extends React.Component {
     event.preventDefault();
     API.login({ email: this.state.email, password: this.state.password })
       .then((res) => {
-        console.log("RES.data", res.data);
+        console.log("Login() > handleLogin() > 'RES.data'", res.data);
         this.props.setUser(res.data)
         this.setState({
           redirectTo: "/feed"

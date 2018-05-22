@@ -2,23 +2,44 @@ import React from "react";
 // import { Col, Row, Wrapper } from "../BootstrapGrid";
 import "./PostForm.css"; // Post Form CSS
 
-const PostForm = ({ postComment, category }) => (
+const PostForm = ({ addPost, handleInputChange, postBody, postCategory }) => (
 
-    <div>
-        {/* <Row> */}
-            <div className="panel panel-default">
-                <div className="post panel-heading">Post Form</div>
-                <div className="post panel-body">
-                    <textarea className="post form-control" rows="20"/>
-                    {postComment}
-                    <br />
-                    {category}
-                    <br />
-                    <button style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
-                    </button>
-                </div>
+    <div id="postFormPanel">
+        <div className="panel">
+            <div id="postFormHeader" className="panel-heading">Share your story...</div>
+            <div id="postFormBody" className="panel-body">
+                <form id="postForm" onSubmit={addPost}>
+                    <div className="form-group">
+                        <textarea name="postBody" value={postBody} onChange={handleInputChange} id="postFormBody" placeholder="Write your story here..." className="form-control" rows="10" />
+                    </div>
+                    <div className="form-group">
+                        <select name="postCategory" value={postCategory} onChange={handleInputChange} className="custom-select" id="postCategory">
+
+                            <option value="null" disabled="" defaultValue="">Category...</option>
+                            <option value="Coding">Coding</option>
+                            <option value="Education">Education</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Food">Food</option>
+                            <option value="Health">Health</option>
+                            <option value="Love">Love</option>
+                            <option value="Money">Money</option>
+                            <option value="Coding">Music</option>
+                            <option value="People">People</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Coding">Science</option>
+                            <option value="Teens">Sports</option>
+                            <option value="Transportation">Technology</option>
+                            <option value="Coding">TV</option>
+                            <option value="Weather">Weather</option>
+
+                        </select>
+                    </div>
+                    <div id="postFormBtnWrapper">
+                        <button id="postFormBtn" type="submit">Share</button>
+                    </div>
+                </form>
             </div>
-        {/* </Row> */}
+        </div>
     </div>
 
 );

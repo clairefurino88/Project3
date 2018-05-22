@@ -1,1 +1,9 @@
 /* Feed Page Styling */
+
+.feedHeader {
+    font-family: 'Bree Serif', serif;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}

@@ -1,38 +1,117 @@
 import React from "react";
+import API from "../../utils/API";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
-import "./Feed.css"; // Feed Page CSS
+import CatButtons from "../../components/CatButtons";
 import Post from "../../components/Post";
-import CatButton from "../../components/CatButton";
 import PostForm from "../../components/PostForm";
+import "./Feed.css"; // Feed Page CSS
 
-const Feed = ({ loggedIn, user }) => {
+class Feed extends React.Component {
 
-    return (
+    state = {
+        loggedIn: this.props.loggedIn,
+        user: this.props.user,
+        postBody: "",
+        postCategory: "",
+        posts: []
+    };
 
-        <Wrapper>
+    addPost = (event) => {
+        event.preventDefault();
+        API.createPost({
+            body: event.target.postBody.value,
+            category: event.target.postCategory.value
+        })
+            .then((res) => {
+                console.log("New post added successfully! Clear post form...");
+                // Clear post form values
+                this.setState({
+                    postBody: "",
+                    postCategory: ""
+                });
+                this.getAllPosts();
+            });
+    };
 
-            <CatButton />
-            <Row>
-                <Col size="md" span="8">
-                    <Post
-                        image="https://www.publicdomainpictures.net/pictures/30000/velka/portrait-of-a-man-1331296473U9x.jpg"
-                        name="Mr Man"
-                        category="Traffic"
-                        comment="No comment"
-                        timeStamp="date"
-                    />
-                </Col>
-                <Col size="md" span="4">
-                    <PostForm
-                        postComment="Post gets feed into comment."
-                        category="Traffic"
-                    />
-                </Col>
-            </Row>
+    componentDidMount = () => {
+        this.getAllPosts();
+    };
 
-        </Wrapper>
+    getAllPosts = () => {
+        API.getAllPosts()
+            .then((res) => {
+                this.setState({
+                    posts: res.data
+                })
+            });
+    }
 
-    ); // End of return()
+    getPostsByCategory = (category) => {
+        if (category !== "All") {
+            API.getPostsByCat(category)
+                .then((res) => {
+                    console.log("Feed() > getPostsByCat() > 'res.data': ", res.data);
+                    if (res.data.length > 0) this.setState({ posts: res.data });
+                    else this.setState({ posts: [] });
+                });
+        }
+        else {
+            this.getAllPosts();
+        }
+    }
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    };
+
+    render() {
+
+        return (
+
+            <div className="feedContainer">
+                <CatButtons getPosts={this.getPostsByCategory} />
+                <Wrapper>
+                    <Row>
+                        {/* Feed column */}
+                        <Col size="md" span="8">
+                            {!this.state.posts.length ?
+                                (<p className="feedHeader">No Stories...</p>)
+                                :
+                                ([
+                                    <p key="feedHeader" className="feedHeader">Stories...</p>,
+                                    this.state.posts.map((post) => {
+                                        return (
+                                            <Post
+                                                key={post.id}
+                                                id={post.id}
+                                                category={post.category}
+                                                comment={post.body}
+                                                image={post.User.imageUrl}
+                                                name={post.User.name}
+                                                timeStamp={post.updatedAt}
+                                            />
+                                        );
+                                    })
+                                ])
+                            };
+                        </Col>
+                        {/* Post form column */}
+                        <Col size="md" span="4">
+                            <PostForm
+                                addPost={this.addPost}
+                                handleInputChange={this.handleInputChange}
+                                postBody={this.state.postBody}
+                                postCategory={this.state.postCategory}
+                            />
+                        </Col>
+                    </Row>
+                </Wrapper>
+            </div>
+
+        ); // End of return()
+
+    }; // End of render()
 
 }; // End of Feed()
 

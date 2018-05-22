@@ -1,53 +1,53 @@
 /* User Post Styling */
-.postimg {
-    width: 75px;
-    height: 60px;
-}
-hr{
-    margin: 10px;
-    }
-    #left-panel{
-    margin-left: 10px;
-    margin-right: 10px;
-    }
-    
-    .postStyle {
-    border-color: 100px solid black !important;
-    font-family:'Inconsolata', monospace;
-    font-size: 18px;
-    color: black;
+
+.postCategory {
+    color: rgb(252, 250, 132);
+    font-size: 15px;
     font-weight: bold;
-    margin-left: -25px;
-    }
-    
-    p#liveFeedTitle {
-    font-family: 'Bree Serif', serif;
-    font-size: 35px;
-    text-align: center;
-    margin-bottom: 0;
-    color: white;
-    }
-    .post-category{
+    margin: 10px 15px 0 0;
     text-align: right;
-    text-decoration-line: underline;  
-    }
-    
-    .post-area {
-    border-color: 100px solid black !important;
-    margin: 10px, 10px, 10px, 10px;
-    width: auto;
-    height: auto;
-    }
-    .post-datetime {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    margin-left: -25px;
-    margin-top: -10px;
-    }
-    .user-img-members{
+    text-shadow: 1px 1px #262f2a;
+}
+
+.postComment {
+    background-color: white;
+    border-radius: 4px;
+    margin: 10px 15px;
+    min-height: 60px;
+    padding: 7px;
+}
+.postContainer {
+    background: linear-gradient(to top, #e6a8f8, #c173d0);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(38, 47, 42, 1.0), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.postImg {
+    background-color: white;
+    border-radius: 60%;
+    margin: 10px 15px;
+    text-align: center;
+}
+
+.postImg img {
+    height: 60px;
+    padding: 4px;
     width: 60px;
-    height: 50px;
-    }
-    .feed-post{
-    margin-bottom: 10px;
-    }
+}
+
+.postTime {
+    color: black;
+}
+
+.postUser {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px #262f2a;
+}
+
+.postUserAndTime {
+    margin: 10px 0 0 -15px
+}
