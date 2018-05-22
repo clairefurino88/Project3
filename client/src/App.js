@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   setUser = (user) => {
-    console.log("USER", user);
+    console.log("setUser() 'user': ", user);
     this.setState({
       user,
       loggedIn: true
@@ -34,6 +34,7 @@ class App extends React.Component {
   componentDidMount() {
     API.getLoggedOnUser()
       .then(res => {
+        console.log("App.js componentDidMount() 'res.data': ", res.data);
         this.setState({
           user: res.data.user,
           loggedIn: res.data.user || false

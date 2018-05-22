@@ -1,4 +1,4 @@
-export { default as CatButton } from "./CatButton";
+export { default as CatButtons } from "./CatButtons";
 export { default as DevCard } from "./DevCard";
 export { default as NavBar } from "./NavBar";
 export { default as Post } from "./Post";
