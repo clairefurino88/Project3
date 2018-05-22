@@ -1,8 +1,14 @@
 /* Developer Card Styling */
 
+
 .devText {
-    margin-left: 180px;
+   text-align: center;
     color: white;
+    text-align: center;
+}
+.devTextSocial {
+  text-align: center;
+   color: white;
 }
 
 .devCard {
@@ -72,6 +78,53 @@
   padding: 5px;
   }
 
+/* media queries */
+/* small screens */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  /* Styles */
+    .navBarBtn {
+        margin-top: 10px;
+    }
+    #logoText {
+        margin-top: 12px;
+        padding-left: 10px;
+    }
+    .signUpForm {
+        margin-top: 40px;
+    }
+    .navBarHeader {
+        max-width: 80px;
+    }
+    .navBarLogo {
+        max-width: 80px;
+    }
+    div {
+        width: 100%;
+    }
+    body {
+        max-width: 400px;
+    }
+    .devCard {
+      width: 100%;
+    }
+    .devText {
+      width: 280px;
+    }
+}
+/* iPad screens */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  #logoText {
+      padding-left: 10px;
+      padding-top: 5px;
+  }
+  .navBarLogo {
+      left: -2px;
+  }
+}
 
 
 
