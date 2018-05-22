@@ -19,8 +19,11 @@ const About = () => {
         <Wrapper>
 
             <Row>
-                <Col size="md">
-                    <h1 className="devText">Meet the Team</h1>
+                <Col size="md" span="7">
+                    <h1 className="devText ">Meet the Team</h1>
+                </Col>
+                <Col size="md" span="5">
+                <Twitter />
                 </Col>
             </Row>
 
@@ -36,6 +39,7 @@ const About = () => {
                             email={team.email}
                             gitHub={team.gitHubUrl}
                             linkedIn={team.linkedInUrl}
+                            class={team.class}
                         />
                     ))}
                 </Col>
@@ -44,33 +48,33 @@ const About = () => {
                 <Col size="md" span="1"> </Col>
 
                 <Col size="md" span="4">
-                    <Twitter />
-<div className="socialStyle">
-                    <Link to="https://twitter.com/hate_and_date" target="_blank"
+                    
+                    <div className="socialStyle">
+                        <Link to="https://twitter.com/hate_and_date" target="_blank"
 
-                        className="twitter-timeline" data-width="270" data-height="470">
-                        <img width={100} height={100} alt="" src={twit} />
-                    </Link>
+                            className="twitter-timeline" data-width="270" data-height="470">
+                            <img className="socialLogo" width={60} height={60} alt="" src={twit} />
+                        </Link>
 
 
-                    <Link to="https://twitter.com/hate_and_date" target="_blank"
+                        <Link to="https://twitter.com/hate_and_date" target="_blank"
 
-                        className="twitter-timeline" data-width="270" data-height="470">
-                        <img width={100} height={100} alt="" src={instagram} />
-                    </Link>
+                            className="twitter-timeline" data-width="270" data-height="470">
+                            <img className="socialLogo" width={60} height={60} alt="" src={instagram} />
+                        </Link>
 
-                    <Link to="https://twitter.com/hate_and_date" target="_blank"
+                        <Link to="https://twitter.com/hate_and_date" target="_blank"
 
-                        className="twitter-timeline" data-width="270" data-height="470">
-                        <img width={100} height={100} alt="" src={fb} />
-                    </Link>
+                            className="twitter-timeline" data-width="270" data-height="470">
+                            <img className="socialLogo" width={60} height={60} alt="" src={fb} />
+                        </Link>
 
-                    <Link to="https://twitter.com/hate_and_date" target="_blank"
+                        <Link to="https://twitter.com/hate_and_date" target="_blank"
 
-                        className="twitter-timeline" data-width="270" data-height="470">
-                        <img width={100} height={100} alt="" src={gith} />
-                    </Link>
-            </div>
+                            className="twitter-timeline" className="socialLogo" data-width="270" data-height="470">
+                            <img  width={60} height={60} alt="" src={gith} />
+                        </Link>
+                    </div>
 
                 </Col>
 

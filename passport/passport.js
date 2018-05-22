@@ -70,7 +70,7 @@ passport.use(new LocalStrategy(
       });
   }));
 
-  // Luis: Updated code...
+// Luis: Updated code...
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
