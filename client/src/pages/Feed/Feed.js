@@ -64,8 +64,7 @@ class Feed extends React.Component {
     };
 
     render() {
-
-        return (
+           return (
 
             <div className="feedContainer">
                 <CatButtons getPosts={this.getPostsByCategory} />

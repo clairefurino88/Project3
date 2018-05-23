@@ -3,7 +3,7 @@ import { Col, Row } from "../BootstrapGrid";
 import "./Post.css"; // User Post CSS
 
 const Post = ({ image, name, category, timeStamp, comment }) => {
-
+    var time = new Date(timeStamp).toUTCString().slice(0, 26)
     return (
 
         <div className="postContainer">
@@ -19,7 +19,7 @@ const Post = ({ image, name, category, timeStamp, comment }) => {
                 <Col size="md" span="6">
                     <div className="postUserAndTime">
                         <div className="postUser">{name}</div>
-                        <div className="postTime">{timeStamp}</div>
+                        <div className="postTime">{time}</div>
                     </div>
                 </Col>
                 {/* Post Category Column */}
