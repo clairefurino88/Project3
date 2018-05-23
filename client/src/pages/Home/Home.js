@@ -25,12 +25,11 @@ class Home extends React.Component {
 
   }
 
-  consoleLogProps = () => {
-    console.log("Home > this.props: ", this.props);
-  };
+  componentDidMount = () => {
+    if (this.state.loggedIn) return <Redirect to="/feed" />
+  }
 
   handleInputChange = event => {
-    console.log("handleInputChange 'event.target': ", event.target);
     const { name, value } = event.target;
     this.setState({ [name]: value })
   };
@@ -54,8 +53,8 @@ class Home extends React.Component {
 
   render() {
 
+    if (this.state.redirectTo) return <Redirect to={this.state.redirectTo}/>
     if (this.state.loggedIn) return <Redirect to="/feed"/>
-    if (this.state.redirectTo) return <Redirect to={this.state.redirectTo}/>    
 
     return (
 

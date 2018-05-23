@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import CatButtons from "../../components/CatButtons";
@@ -34,11 +35,15 @@ class Profile extends React.Component {
     };
 
     componentDidMount = () => {
+        if (!this.state.loggedIn) {
+            // Redirect to "/" if user NOT logged in
+            return <Redirect to="/" />
+        }
         this.getUserPosts();
     };
 
     getUserPostsByCategory = (category) => {
-        const userId = this.state.user.user.id;
+        const userId = this.state.user.id;
         if (category !== "All") {
             API.getPostsByCat(category, userId)
                 .then((res) => {
@@ -50,7 +55,7 @@ class Profile extends React.Component {
     };
 
     getUserPosts = () => {
-        const userId = this.state.user.user.id;
+        const userId = this.state.user.id;
         API.getPostsByUser(userId)
             .then((res) => {
                 if (res.data.length > 0) this.setState({ posts: res.data });
@@ -65,6 +70,11 @@ class Profile extends React.Component {
 
     render() {
 
+            // Redirect to "/" if user NOT logged in
+            if (!this.state.loggedIn) {
+            return <Redirect to="/" />
+        }
+
         return (
 
             <div className="profileContainer">
@@ -76,13 +86,13 @@ class Profile extends React.Component {
                         <Col size="md" span="4">
                             <div className="userInfoContainer">
                                 <UserInfo
-                                    image={this.state.user.user.imageUrl}
-                                    name={this.state.user.user.name}
-                                    email={this.state.user.user.email}
-                                    occupation={this.state.user.user.occupation}
-                                    relationshipType={this.state.user.user.relationshipType}
-                                    location={this.state.user.user.location}
-                                    bio={this.state.user.user.bio}
+                                    image={this.state.user.imageUrl}
+                                    name={this.state.user.name}
+                                    email={this.state.user.email}
+                                    occupation={this.state.user.occupation}
+                                    relationshipType={this.state.user.relationshipType}
+                                    location={this.state.user.location}
+                                    bio={this.state.user.bio}
                                 />
                             </div>
                         </Col>
@@ -109,7 +119,7 @@ class Profile extends React.Component {
                                     (
                                         // <p key="feedHeader" className="feedHeader">Your Stories...</p>,
                                         this.state.posts.map(function (post) {
-                                            let { name, imageUrl } = this.state.user.user;
+                                            let { name, imageUrl } = this.state.user;
                                             return (
                                                 <Post
                                                     key={post.id}

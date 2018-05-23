@@ -7,19 +7,31 @@ import { About, Feed, Home, Login, Profile } from "./pages"
 class App extends React.Component {
 
   state = {
+    loading: "initial",
     loggedIn: false,
-    user: null,
-    email: "",
-    password: ""
+    user: null
   }
 
-  setUser = (user) => {
-    console.log("setUser() 'user': ", user);
-    this.setState({
-      user,
-      loggedIn: true
-    });
-  };
+  componentDidMount() {
+    this.setState({ loading: "true" });
+    API.getLoggedOnUser()
+      .then(res => {
+        if (res.data.user) {
+          this.setState({
+            loading: "false",
+            loggedIn: true,
+            user: res.data.user
+          });
+        }
+        else {
+          this.setState({
+            loading: "false",
+            loggedIn: false,
+            user: null
+          });
+        };
+      });
+  }
 
   handleLogout = () => {
     API.logout()
@@ -31,18 +43,24 @@ class App extends React.Component {
       });
   };
 
-  componentDidMount() {
-    API.getLoggedOnUser()
-      .then(res => {
-        console.log("App.js componentDidMount() 'res.data': ", res.data);
-        this.setState({
-          user: res.data.user,
-          loggedIn: res.data.user || false
-        })
-      })
-  }
+  setUser = (user) => {
+    this.setState({
+      user,
+      loggedIn: true
+    });
+  };
 
   render() {
+
+    // Forgo return() until loading === 'false'
+    if (this.state.loading === 'initial') {
+      return <h2>Intializing...</h2>;
+    }
+
+    // Forgo return() until loading === 'false'
+    if (this.state.loading === 'true') {
+      return <h2>Loading...</h2>;
+    }
 
     return (
 
@@ -55,9 +73,6 @@ class App extends React.Component {
           <Route exact path="/home" render={() => <Home loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser} loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} user={this.state.user} />} />
-          {/* Other Original Franklin Routes
-          <Route exact path="/signup" component={SignupForm} />
-          <Route exact path="/login" render={() => <Login setUser={this.setUser} />} /> */}
         </div>
       </Router>
 
