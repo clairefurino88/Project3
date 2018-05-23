@@ -1,14 +1,23 @@
 /* Profile Page User Info Styling */
+
+.userData {
+    margin: 0;
+    font-family: inherit;
+    color: white;
+    font-size: 17px;
+}
+
 .userImg {
-    max-width: 250px;
-    max-height: 250px;
-    min-width: 250px;
-    min-height: 250px;
+    background-color: white;
+    border: 3px solid #ffffff;
+    border-radius: 0% 10% 0% 10%;
+    box-shadow: 3-x 4px;
     display: block;
     margin: auto;
-    border: 3px solid #ffffff;
-    box-shadow: 3-x 4px;
-    border-radius: 0% 10% 0% 10%;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .userInfo {
@@ -18,17 +27,17 @@
     font-size: 17px;
 }
 
-.userData {
-    margin: 0;
+.userTitle {
+    width: 100%;
+    font-size: 14px;
     font-family: inherit;
-    color: white;
-    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(252, 250, 132);
+    display: block;
+    box-shadow: 0 2px 4px 0 #262f2a, 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    box-shadow: 3px 3px #262f2a;
+    border-radius: 4px;
 }
-
-/* .userBox {
-    border: 10px;
-    border: 3px solid #ffffff;
-    box-shadow: 3-x 4px;
-    border-radius: 0% 10% 0% 10%;
-
-} */
