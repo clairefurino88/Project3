@@ -7,7 +7,7 @@
 }
 
 .categories button:hover {
-    background-color: #692e4e;
+    background-color: #563D7C; /* Previous: #692e4e */
     color: white;
 }
 

@@ -5,36 +5,26 @@ import "./UserInfo.css"; // Profile Page User Info CSS
 const UserInfo = ({ image, name, email, occupation, relationshipType, location, bio }) => (
 
     <div className="userDiv">
-
         <div className="userTitle">About Me</div>
         <br />
-
-        <img className="userImg" src={image} alt="userprofilephoto" />
+        <div className="imgContainer">
+            <img className="userImg" src={image} alt="userprofilephoto" />
+        </div>
+        <br />
         <p className="userInfo" > Name: </p> <p className="userData"> {name} </p>
+        <br />
         <p className="userInfo" > Email: </p> <p className="userData"> {email} </p>
+        <br />
         <p className="userInfo" > Occupation: </p> <p className="userData">{occupation} </p>
+        <br />
         <p className="userInfo" > Relationship Type: </p> <p className="userData">{relationshipType}</p>
+        <br />
         <p className="userInfo" > Location: </p> <p className="userData">{location}</p>
+        <br />
         <p className="userInfo" > Bio: </p> <p className="userData">{bio}</p>
-  
-  </div>
+
+    </div>
 
 ); // End of UserInfo()
 
 export default UserInfo;
-
-//     <Row>
-//         <Col size="md" span="6">
-//             <br />
-//             <img className="userImg" src={image} />
-//         </Col>
-//         <Col size="md" span="6">
-//             <br />
-//             <p className="userInfo" > Name: </p> <p className="userData">{name}</p>
-//             <p className="userInfo" > Email: </p> <p className="userData">{email}</p>
-//             <p className="userInfo" > Occupation: </p> <p className="userData">{occupation} </p>
-//             <p className="userInfo" > Relationship Type: </p> <p className="userData">{relationshipType}</p>
-//             <p className="userInfo" > Location: </p> <p className="userData">{location}</p>
-//             <p className="userInfo" > Bio: </p> <p className="userData">{bio}</p>
-//         </Col>
-//     </Row>
