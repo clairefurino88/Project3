@@ -2,15 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import DevCard from "../../components/DevCard";
-import Twitter from "../../components/Twitter";
 import Team from "./Team.json"; // Developer Team Info
+import { facebook, github, instagram, twitter } from "../../components/Twitter";
 import "./About.css"; // About Page CSS
-import twit from "../../components/Twitter/twit.png";
-import instagram from "../../components/Twitter/insta.png";
-import fb from "../../components/Twitter/fb.png";
-import gith from "../../components/Twitter/gith.png";
-<img src={require("../../components/Twitter/twit.png")} />
-
 
 const About = () => {
 
@@ -20,64 +14,67 @@ const About = () => {
 
             <Row>
                 <Col size="md" span="7">
-                    <h1 className="devText ">Meet the Team</h1>
+                    <div className="aboutHeader">Meet the Team</div>
                 </Col>
-                <Col size="md" span="5">
-                <Twitter />
+                <Col size="md" span="1"></Col>
+                <Col size="md" span="4">
+                    <div className="aboutHeader">Follow Us</div>
                 </Col>
             </Row>
 
             <Row>
                 {/* Developer Card Column */}
                 <Col size="md" span="7">
-                    {Team.map(team => (
-                        <DevCard
-                            key={team.id}
-                            id={team.id}
-                            name={team.name}
-                            image={team.image}
-                            email={team.email}
-                            gitHub={team.gitHubUrl}
-                            linkedIn={team.linkedInUrl}
-                            class={team.class}
-                        />
-                    ))}
+                    <div className="devCardContainer">
+                        {Team.map(team => (
+                            <DevCard
+                                key={team.id}
+                                id={team.id}
+                                name={team.name}
+                                image={team.image}
+                                email={team.email}
+                                gitHub={team.gitHubUrl}
+                                linkedIn={team.linkedInUrl}
+                                class={team.class}
+                            />
+                        ))}
+                    </div>
                 </Col>
 
                 {/* Empty Column */}
                 <Col size="md" span="1"> </Col>
 
+                {/* Follow us Column */}
                 <Col size="md" span="4">
-                    
                     <div className="socialStyle">
-                        <Link to="https://twitter.com/hate_and_date" target="_blank"
-
-                            className="twitter-timeline" data-width="270" data-height="470">
-                            <img className="socialLogo" width={60} height={60} alt="" src={twit} />
-                        </Link>
-
-
-                        <Link to="https://twitter.com/hate_and_date" target="_blank"
-
-                            className="twitter-timeline" data-width="270" data-height="470">
-                            <img className="socialLogo" width={60} height={60} alt="" src={instagram} />
-                        </Link>
-
-                        <Link to="https://twitter.com/hate_and_date" target="_blank"
-
-                            className="twitter-timeline" data-width="270" data-height="470">
-                            <img className="socialLogo" width={60} height={60} alt="" src={fb} />
-                        </Link>
-
-                        <Link to="https://twitter.com/hate_and_date" target="_blank"
-
-                            className="twitter-timeline" className="socialLogo" data-width="270" data-height="470">
-                            <img  width={60} height={60} alt="" src={gith} />
-                        </Link>
+                        <ul className="socialLinksList">
+                            <li className="socialLink">
+                                <Link to="https://twitter.com/hate_and_date" target="_blank"
+                                    className="twitter-timeline" data-width="270" data-height="470">
+                                    <img className="socialLogo" alt="Twitter" src={twitter} />
+                                </Link>
+                            </li>
+                            <li className="socialLink">
+                                <Link to="https://www.instagram.com" target="_blank"
+                                    className="twitter-timeline" data-width="270" data-height="470">
+                                    <img className="socialLogo" alt="Instagram" src={instagram} />
+                                </Link>
+                            </li>
+                            <li className="socialLink">
+                                <Link to="https://www.facebook.com" target="_blank"
+                                    className="twitter-timeline" data-width="270" data-height="470">
+                                    <img className="socialLogo" alt="Facebook" src={facebook} />
+                                </Link>
+                            </li>
+                            <li className="socialLink">
+                                <Link to="https://github.com" target="_blank"
+                                    className="twitter-timeline" data-width="270" data-height="470">
+                                    <img className="socialLogo" alt="Github" src={github} />
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-
                 </Col>
-
             </Row>
 
         </Wrapper>

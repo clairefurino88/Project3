@@ -1,16 +1,5 @@
 /* Developer Card Styling */
 
-
-.devText {
-   text-align: center;
-    color: white;
-    text-align: center;
-}
-.devTextSocial {
-  text-align: center;
-   color: white;
-}
-
 .devCard {
     background: #fff;
     border-radius: 2px;
@@ -66,7 +55,12 @@
 .devContent {
     margin-top: 15px;
 }
-  
+
+.devTextSocial {
+    text-align: center;
+     color: white;
+}
+
 .fa-linkedin {
     margin-top: 10px;
     margin-bottom: 0px;

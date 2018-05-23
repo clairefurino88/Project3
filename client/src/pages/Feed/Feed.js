@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import CatButtons from "../../components/CatButtons";
@@ -31,8 +32,12 @@ class Feed extends React.Component {
                 this.getAllPosts();
             });
     };
-
+    
     componentDidMount = () => {
+        if (!this.state.loggedIn) {
+            // Redirect to "/" if user not logged in
+            return <Redirect to="/" />
+        }
         this.getAllPosts();
     };
 
@@ -64,12 +69,19 @@ class Feed extends React.Component {
     };
 
     render() {
-           return (
+
+        // Redirect to "/" if not logged in
+        if (!this.state.loggedIn) {
+            return <Redirect to="/" />
+        }
+
+        return (
 
             <div className="feedContainer">
                 <CatButtons getPosts={this.getPostsByCategory} />
                 <Wrapper>
                     <Row>
+                        {/* Feed header */}
                         <Col size="md">
                             {!this.state.posts.length ?
                                 <p className="feedHeader">No Stories...</p>
