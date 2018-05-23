@@ -17,18 +17,31 @@ router.get("/posts/all", (req, res) => {
     });
 });
 
-// Retrieve All Posts for Selected Category
-router.get("/posts/category/:category", (req, res) => {
-  console.log("api/posts/category > req.params: ", req.params);
-  
-  db.Post.findAll({
-    include: [db.User],
-    where: { category: req.params.category },
-    order: [['updatedAt', 'DESC']]
-  })
-    .then((data) => {
-      res.json(data);
-    });
+// Retrieve All Posts for Selected Category (userId is optional)
+router.get("/posts/category/:category/:userId?", (req, res) => {
+  if (req.params.userId) {
+    db.Post.findAll({
+      include: [db.User],
+      where: {
+        category: req.params.category,
+        userId: req.params.userId
+      },
+      order: [['updatedAt', 'DESC']]
+    })
+      .then((data) => {
+        res.json(data)
+      });
+  }
+  else {
+    db.Post.findAll({
+      include: [db.User],
+      where: { category: req.params.category },
+      order: [['updatedAt', 'DESC']]
+    })
+      .then((data) => {
+        res.json(data);
+      });
+  };
 });
 
 // Delete Post
@@ -44,8 +57,6 @@ router.delete("/posts/delete", (req, res) => {
 
 // Create New Post
 router.post("/posts/new", (req, res) => {
-  console.log("/api/posts/new > req.body: ", req.body);
-  console.log("/api/posts/new > 'req.user: ", req.user);
   db.Post.create({
     body: req.body.body,
     category: req.body.category,
@@ -57,14 +68,26 @@ router.post("/posts/new", (req, res) => {
 });
 
 // Retrieve All Posts for Logged On User
-router.get("/posts/user", (req, res) => {
-  db.User.findOne({
-    include: [{ model: db.Post, order: [['updatedAt', 'DESC']] }],
-    where: { id: req.user.id }
+// router.get("/posts/user", (req, res) => {
+//   db.User.findOne({
+//     include: [{ model: db.Post, order: [['updatedAt', 'DESC']] }],
+//     where: { id: req.user.id }
+//   })
+//     .then((data) => {
+//       res.json(data);
+//       return;
+//     });
+// });
+
+// Retrieve All Logged On User Posts
+router.get("/posts/user/:userId", (req, res) => {
+  db.Post.findAll({
+    include: [db.User],
+    where: { userId: req.params.userId },
+    order: [['updatedAt', 'DESC']]
   })
     .then((data) => {
-      res.json(data);
-      return;
+      res.json(data)
     });
 });
 

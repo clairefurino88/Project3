@@ -23,7 +23,6 @@ class Feed extends React.Component {
             category: event.target.postCategory.value
         })
             .then((res) => {
-                console.log("New post added successfully! Clear post form...");
                 // Clear post form values
                 this.setState({
                     postBody: "",
@@ -50,7 +49,6 @@ class Feed extends React.Component {
         if (category !== "All") {
             API.getPostsByCat(category)
                 .then((res) => {
-                    console.log("Feed() > getPostsByCat() > 'res.data': ", res.data);
                     if (res.data.length > 0) this.setState({ posts: res.data });
                     else this.setState({ posts: [] });
                 });
@@ -88,7 +86,6 @@ class Feed extends React.Component {
                                 ""
                                 :
                                 (
-                                    // <p key="feedHeader" className="feedHeader">Stories...</p>,
                                     this.state.posts.map((post) => {
                                         return (
                                             <Post

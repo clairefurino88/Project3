@@ -10,10 +10,10 @@ const PostForm2 = ({ addPost, handleInputChange, postBody, postCategory }) => (
             <div id="postForm2Body" className="panel-body">
                 <form id="postForm2" onSubmit={addPost}>
                     <div className="form-group">
-                        <textarea name="postBody" value={postBody} onChange={handleInputChange} id="postForm2Body" placeholder="Write your story here..." className="form-control" rows="10" />
+                        <textarea name="postBody" value={postBody} onChange={handleInputChange} id="postForm2Body" placeholder="Write your story here..." className="form-control" rows="3" />
                     </div>
-                    <div className="form-group">
-                        <select name="postCategory" value={postCategory} onChange={handleInputChange} className="custom-select" id="postForm2Category">
+                    <div id="postForm2CatSelect" className="form-group">
+                        <select name="postCategory" value={postCategory} onChange={handleInputChange} className="custom-select">
 
                             <option value="null" disabled="" defaultValue="">Category...</option>
                             <option value="Coding">Coding</option>

@@ -4,6 +4,11 @@
     height: calc(2.25rem + 7px);
 }
 
+#postForm textarea {
+    overflow: auto;
+    resize: none;
+}
+
 #postFormBtn {
     background-color: rgb(252, 250, 132);
     border: none;

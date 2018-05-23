@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import CatButtons from "../../components/CatButtons";
 import Post from "../../components/Post";
+import PostForm2 from "../../components/PostForm2"
 import UserInfo from "../../components/UserInfo";
 import "./Profile.css"; // Profile Page CSS
 
@@ -23,43 +24,43 @@ class Profile extends React.Component {
             category: event.target.postCategory.value
         })
             .then((res) => {
-                console.log("New post added successfully! Clear post form...");
                 // Clear post form values
                 this.setState({
                     postBody: "",
                     postCategory: ""
                 });
-                // this.getAllUserPosts();
+                this.getUserPosts();
             });
     };
 
     componentDidMount = () => {
-        console.log("Profile() > componentDidMount() > 'this.state.user': ", this.state.user);
-        this.getAllUserPosts();
+        this.getUserPosts();
     };
 
-    getAllUserPostsByCategory = (category) => {
+    getUserPostsByCategory = (category) => {
+        const userId = this.state.user.user.id;
         if (category !== "All") {
-            API.getPostsByCat(category)
+            API.getPostsByCat(category, userId)
                 .then((res) => {
-                    console.log("Feed() > getPostsByCat() > 'res.data': ", res.data);
                     if (res.data.length > 0) this.setState({ posts: res.data });
                     else this.setState({ posts: [] });
                 });
         }
-        else this.getAllUserPosts();
+        else this.getUserPosts();
     };
 
-    getAllUserPosts = () => {
-        API.getPostsByUser()
+    getUserPosts = () => {
+        const userId = this.state.user.user.id;
+        API.getPostsByUser(userId)
             .then((res) => {
-                console.log("Profile() > getAllUserPosts() > 'res.data.Posts.length': ", res.data.Posts.length);
-                console.log("Profile() > getAllUserPosts() > 'res.data': ", res.data);
-                if (res.data.Posts.length > 0) this.setState({ posts: res.data.Posts });
+                if (res.data.length > 0) this.setState({ posts: res.data });
                 else this.setState({ posts: [] });
-                console.log("Profile() > getAllUserPosts() > 'this.state.user': ", this.state.user);
-                console.log("Profile() > getAllUserPosts() > 'this.state.posts': ", this.state.posts);
             });
+    };
+
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
     };
 
     render() {
@@ -67,7 +68,7 @@ class Profile extends React.Component {
         return (
 
             <div className="profileContainer">
-                <CatButtons getPosts={this.getAllUserPostsByCategory} />
+                <CatButtons getPosts={this.getUserPostsByCategory} />
                 <Wrapper>
                     <Row>
 
@@ -75,26 +76,39 @@ class Profile extends React.Component {
                         <Col size="md" span="4">
                             <div className="userInfoContainer">
                                 <UserInfo
-                                    image="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Flmcdesign-rj6zcy7b8ypu79snuv.netdna-ssl.com%2Fwp-content%2Fuploads%2F2016%2F01%2FShrek_Tile-1-500x500.jpg&f=1"
-                                    name="Don the Boss"
-                                    email="bobbybillyboy@gmail.com"
-                                    occupation="Plumber"
-                                    relationshipType="Long-term love"
-                                    location="Newark, NJ"
-                                    bio="I'm just a regular plumber, dawg."
+                                    image={this.state.user.user.imageUrl}
+                                    name={this.state.user.user.name}
+                                    email={this.state.user.user.email}
+                                    occupation={this.state.user.user.occupation}
+                                    relationshipType={this.state.user.user.relationshipType}
+                                    location={this.state.user.user.location}
+                                    bio={this.state.user.user.bio}
                                 />
                             </div>
                         </Col>
 
-                        {/* User Feed Column */}
+                        {/* User Feed/Post Form Column */}
                         <Col size="md" span="8">
+                            {!this.state.posts.length ?
+                                <p className="feedHeader">No Stories...</p>
+                                :
+                                <p key="feedHeader" className="feedHeader">Your Stories...</p>
+                            }
+                            <div className="userPostForm">
+                                <PostForm2
+                                    addPost={this.addPost}
+                                    handleInputChange={this.handleInputChange}
+                                    postBody={this.state.postBody}
+                                    postCategory={this.state.postCategory}
+                                />
+                            </div>
                             <div className="userFeedContainer">
                                 {!this.state.posts.length ?
-                                    (<p className="feedHeader">No Stories...</p>)
+                                    ""
                                     :
-                                    ([
-                                        <p key="feedHeader" className="feedHeader">Your Stories...</p>,
-                                        this.state.posts.map(function(post) {
+                                    (
+                                        // <p key="feedHeader" className="feedHeader">Your Stories...</p>,
+                                        this.state.posts.map(function (post) {
                                             let { name, imageUrl } = this.state.user.user;
                                             return (
                                                 <Post
@@ -108,17 +122,10 @@ class Profile extends React.Component {
                                                 />
                                             );
                                         }, this)
-                                    ])
+                                    )
                                 };
                             </div>
                         </Col>
-
-                        {/* User New Post Column
-                        <Col size="md" span="3">
-                            <div className="userPostFormContainer">
-                                <span style={{ color: "white" }}>User Post Form</span>
-                            </div>
-                        </Col> */}
 
                     </Row>
                 </Wrapper>
@@ -131,43 +138,3 @@ class Profile extends React.Component {
 }; // End of class Profile
 
 export default Profile;
-
-// Previous Code
-// const Profile = () => (
-
-//   <Wrapper>
-//     <Row>
-//         {/*  User Information Column */}
-//         <Col size="md" span="7">
-//             {/*  User Image */}
-//             <div className="userContainer">
-//                 <div className="userTitle">About Me</div>
-//                 <UserInfo
-//                     image="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Flmcdesign-rj6zcy7b8ypu79snuv.netdna-ssl.com%2Fwp-content%2Fuploads%2F2016%2F01%2FShrek_Tile-1-500x500.jpg&f=1"
-//                     name="Don the Boss"
-//                     email="bobbybillyboy@gmail.com"
-//                     occupation="Plumber"
-//                     relationshipType="Long-term love"
-//                     location="Newark, NJ"
-//                     bio="I'm just a regular plumber, dawg." />
-//             </div>
-//         </Col>
-
-//             {/* Empty Column */}
-//             <Col size="md" span="1"> </Col>
-
-//             {/* User's feed post Column */}
-//             <Col size="md" span="4">
-//                 <Post
-//                     comment="User's feed post"
-//                     category="Traffic"
-//                 />
-//             </Col>
-
-//         </Row>
-
-//     </Wrapper>
-
-// ); // End of Profile()
-
-// export default Profile;
