@@ -10,7 +10,7 @@
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "clairefurino88 <33135335+clairefurino88@users.noreply.github.com>",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^3.5.0",
@@ -29,5 +29,6 @@
     "passport-local": "^1.0.0",
     "react-router-dom": "^4.2.2",
     "sequelize": "^4.37.7"
-  }
+  },
+  "repository": "https://github.com/clairefurino88/Project3.git"
 }
