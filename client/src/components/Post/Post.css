@@ -15,7 +15,7 @@
     margin: 10px 15px;
     min-height: 60px;
     padding: 7px;
-}
+    }
 .postContainer {
     background: linear-gradient(to top, #e6a8f8, #c173d0);
     border-radius: 4px;
@@ -50,4 +50,12 @@
 
 .postUserAndTime {
     margin: 10px 0 0 -15px
+}
+
+.del-btn{
+    background: #d38de3;
+    border: none;
+    font-size: 20px;
+    color: #fafc84;
+    
 }

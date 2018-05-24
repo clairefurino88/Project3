@@ -14,9 +14,8 @@ class App extends React.Component {
   }
 
   setUser = (user) => {
-    console.log("setUser() 'user': ", user);
     this.setState({
-      user,
+      user, 
       loggedIn: true
     });
   };
@@ -34,24 +33,23 @@ class App extends React.Component {
   componentDidMount() {
     API.getLoggedOnUser()
       .then(res => {
-        console.log("App.js componentDidMount() 'res.data': ", res.data);
         this.setState({
           user: res.data.user,
-          loggedIn: res.data.user || false
+          loggedIn: res.data.user
         })
       })
   }
 
-  render() {
 
+  render() {
     return (
 
       <Router>
         <div>
           <NavBar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
           <Route exact path="/" render={() => <Home loggedIn={this.state.loggedIn} user={this.state.user} />} />
+          <Route path='/feed' render={() => <Feed loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/about" render={() => <About loggedIn={this.state.loggedIn} user={this.state.user} />} />
-          <Route exact path="/feed" render={() => <Feed loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/home" render={() => <Home loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser} loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} user={this.state.user} />} />

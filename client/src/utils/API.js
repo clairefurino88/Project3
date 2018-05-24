@@ -4,7 +4,7 @@ export default {
 
   // API Methods (/api)
   createPost: (post) => { return axios.post("/api/posts/new", post) },
-  deletePost: (postId) => { return axios.delete("/api/posts/delete", postId); },
+  deletePost: (postId) => { return axios.delete(`/api/posts/delete/${postId}`); },
   getAllPosts: () => { return axios.get("/api/posts/all"); },
   getPostsByCat: (category, userId) => {
     var queryUrl = "/api/posts/category/" + category;

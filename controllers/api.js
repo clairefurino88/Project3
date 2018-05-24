@@ -45,9 +45,10 @@ router.get("/posts/category/:category/:userId?", (req, res) => {
 });
 
 // Delete Post
-router.delete("/posts/delete", (req, res) => {
+router.delete("/posts/delete/:id", (req, res) => {
+  console.log('test: ', req.params.id)
   db.Post.destroy(
-    { where: { id: req.body.id } }
+    { where: { id: req.params.id } }
   )
     .then((result) => {
       if (result.changedRows === 0) return res.status(404).end();
