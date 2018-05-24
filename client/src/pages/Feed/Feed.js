@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row, Wrapper } from "../../components/BootstrapGrid";
 import CatButtons from "../../components/CatButtons";
@@ -18,21 +19,30 @@ class Feed extends React.Component {
 
     addPost = (event) => {
         event.preventDefault();
-        API.createPost({
-            body: event.target.postBody.value,
-            category: event.target.postCategory.value
-        })
-            .then((res) => {
-                // Clear post form values
-                this.setState({
-                    postBody: "",
-                    postCategory: ""
+        // Post Form Validation
+        const categoryInput = event.target.postCategory.value;
+        if (categoryInput !== "null") {
+            API.createPost({
+                body: event.target.postBody.value,
+                category: event.target.postCategory.value
+            })
+                .then((res) => {
+                    // Clear post form values
+                    this.setState({
+                        postBody: "",
+                        postCategory: ""
+                    });
+                    this.getAllPosts();
                 });
-                this.getAllPosts();
-            });
+        }
+        else alert("Category field required!");
     };
 
     componentDidMount = () => {
+        if (!this.state.loggedIn) {
+            // Redirect to "/" if user not logged in
+            return <Redirect to="/" />
+        }
         this.getAllPosts();
     };
 
@@ -66,32 +76,42 @@ class Feed extends React.Component {
         e.preventDefault();
         API.deletePost(e.target.id) 
             .then( (res) => {
-                API.getAllPosts()
-                .then((res) => {
-                    this.setState({
-                        posts: res.data
-                    })
-                });
-            })
-            .catch( (err) => {
-                console.log(err)
-            })
+                this.getAllPosts();
+            });            
     }
 
-    // deletePost = postId => {
-    //     API.deletePost(postId)
-    //         .then(res => this.getAllPosts())
-    //         .catch(err => console.log(err));
-    // };
+//     handleDelete = (e) => {
+//         e.preventDefault();
+//         API.deletePost(e.target.id) 
+//             .then( (res) => {
+//                 API.getAllPosts()
+//                 .then((res) => {
+//                     this.setState({
+//                         posts: res.data
+//                     })
+//                 });
+//             })
+//             .catch( (err) => {
+//                 console.log(err)
+//             })
+//     }
 
     render() {
+          
+          // Redirect to "/" if not logged in
+        if (!this.state.loggedIn) {
+            return <Redirect to="/" />
+        }
+            
         let user_id = this.props.user? this.props.user.id:"";
-       console.log(this.props.user, " kjgbkag")
+       
         return (
+          
             <div className="feedContainer">
                 <CatButtons getPosts={this.getPostsByCategory} />
                 <Wrapper>
                     <Row>
+                        {/* Feed header */}
                         <Col size="md">
                             {!this.state.posts.length ?
                                 <p className="feedHeader">No Stories...</p>

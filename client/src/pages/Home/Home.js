@@ -25,37 +25,41 @@ class Home extends React.Component {
 
   }
 
-  consoleLogProps = () => {
-    console.log("Home > this.props: ", this.props);
-  };
+  componentDidMount = () => {
+    if (this.state.loggedIn) return <Redirect to="/feed" />
+  }
 
   handleInputChange = event => {
-    console.log("handleInputChange 'event.target': ", event.target);
     const { name, value } = event.target;
     this.setState({ [name]: value })
   };
 
   handleSignUp = event => {
     event.preventDefault();
-    API.signUp({
-      name: event.target.name.value,
-      email: event.target.email.value,
-      password: event.target.password.value,
-      occupation: event.target.occupation.value,
-      relationshipType: event.target.relationshipType.value,
-      location: event.target.location.value,
-      imageUrl: event.target.photoUrl.value,
-      bio: event.target.bio.value
-    })
-      .then(() => this.setState({
-        redirectTo: "/login"
-      }));
-  }
+    // Location input validation
+    const locationInput = event.target.location.value;
+    if (locationInput !== "null") {
+      API.signUp({
+        name: event.target.name.value,
+        email: event.target.email.value,
+        password: event.target.password.value,
+        occupation: event.target.occupation.value,
+        relationshipType: event.target.relationshipType.value,
+        location: event.target.location.value,
+        imageUrl: event.target.photoUrl.value,
+        bio: event.target.bio.value
+      })
+        .then(() => this.setState({
+          redirectTo: "/login"
+        }));
+    }
+     else alert("Location field required!");
+  };
 
   render() {
 
-    if (this.state.loggedIn) return <Redirect to="/feed"/>
-    if (this.state.redirectTo) return <Redirect to={this.state.redirectTo}/>    
+    if (this.state.redirectTo) return <Redirect to={this.state.redirectTo} />
+    if (this.state.loggedIn) return <Redirect to="/feed" />
 
     return (
 

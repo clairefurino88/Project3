@@ -12,6 +12,13 @@ class Login extends React.Component {
     redirectTo: ""
   }
 
+  // Set 'redirectTo' to '/feed' if user logged in
+  componentWillMount = () => {
+    if (this.props.loggedIn) {
+      this.setState({ redirectTo: "/feed" });
+    }
+  }
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value })
@@ -23,13 +30,15 @@ class Login extends React.Component {
       .then((res) => {
         this.props.setUser(res.data.user)
         this.setState({
-          redirectTo: `/feed`
+          // Set 'redirectTo' to '/feed' if user logged in
+          redirectTo: "/feed"
         });
       });
   }
 
   render() {
 
+    // Redirect to /feed if user logged in
     if (this.state.redirectTo) {
       return <Redirect to={this.state.redirectTo} />
     }
