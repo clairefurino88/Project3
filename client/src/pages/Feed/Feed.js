@@ -14,7 +14,7 @@ class Feed extends React.Component {
         user: this.props.user,
         postBody: "",
         postCategory: "",
-        posts: []
+        posts: [],
     };
 
     addPost = (event) => {
@@ -62,8 +62,7 @@ class Feed extends React.Component {
                     if (res.data.length > 0) this.setState({ posts: res.data });
                     else this.setState({ posts: [] });
                 });
-        }
-        else {
+        } else {
             this.getAllPosts();
         }
     }
@@ -73,15 +72,41 @@ class Feed extends React.Component {
         this.setState({ [name]: value });
     };
 
-    render() {
+    handleDelete = (e) => {
+        e.preventDefault();
+        API.deletePost(e.target.id) 
+            .then( (res) => {
+                this.getAllPosts();
+            });            
+    }
 
-        // Redirect to "/" if not logged in
+//     handleDelete = (e) => {
+//         e.preventDefault();
+//         API.deletePost(e.target.id) 
+//             .then( (res) => {
+//                 API.getAllPosts()
+//                 .then((res) => {
+//                     this.setState({
+//                         posts: res.data
+//                     })
+//                 });
+//             })
+//             .catch( (err) => {
+//                 console.log(err)
+//             })
+//     }
+
+    render() {
+          
+          // Redirect to "/" if not logged in
         if (!this.state.loggedIn) {
             return <Redirect to="/" />
         }
-
+            
+        let user_id = this.props.user? this.props.user.id:"";
+       
         return (
-
+          
             <div className="feedContainer">
                 <CatButtons getPosts={this.getPostsByCategory} />
                 <Wrapper>
@@ -112,11 +137,15 @@ class Feed extends React.Component {
                                                 image={post.User.imageUrl}
                                                 name={post.User.name}
                                                 timeStamp={post.updatedAt}
+                                                handleDelete={this.handleDelete}
+                                                UserId={post.UserId}
+                                                user_id={user_id}
                                             />
                                         );
                                     })
                                 )
                             };
+                            
                         </Col>
                         {/* Post form column */}
                         <Col size="md" span="4">

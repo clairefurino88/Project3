@@ -43,6 +43,7 @@ class App extends React.Component {
       });
   };
 
+
   setUser = (user) => {
     this.setState({
       user,
@@ -68,8 +69,8 @@ class App extends React.Component {
         <div>
           <NavBar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
           <Route exact path="/" render={() => <Home loggedIn={this.state.loggedIn} user={this.state.user} />} />
+          <Route path='/feed' render={() => <Feed loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/about" render={() => <About loggedIn={this.state.loggedIn} user={this.state.user} />} />
-          <Route exact path="/feed" render={() => <Feed loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/home" render={() => <Home loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser} loggedIn={this.state.loggedIn} user={this.state.user} />} />
           <Route exact path="/profile" render={() => <Profile loggedIn={this.state.loggedIn} user={this.state.user} />} />
