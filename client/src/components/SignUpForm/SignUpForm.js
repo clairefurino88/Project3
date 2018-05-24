@@ -45,8 +45,8 @@ const SignUpForm = ({
         </div>
         <div className="form-group">
           <label htmlFor="location">Location</label>
-          <select name="location" id="location-input" className="form-control selectpicker" onChange={handleInputChange} value={location} required>
-            <option value="null" disabled="" defaultValue="">Location (US State)...</option>
+          <select name="location" id="location-input" required className="form-control selectpicker" onChange={handleInputChange} value={location}>
+            <option value="null" disabled="">Location (US State)...</option>
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
             <option value="Arizona">Arizona</option>

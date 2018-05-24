@@ -20,18 +20,23 @@ class Profile extends React.Component {
 
     addPost = (event) => {
         event.preventDefault();
-        API.createPost({
-            body: event.target.postBody.value,
-            category: event.target.postCategory.value
-        })
-            .then((res) => {
-                // Clear post form values
-                this.setState({
-                    postBody: "",
-                    postCategory: ""
+        // Post Form Validation
+        const categoryInput = event.target.postCategory.value;
+        if (categoryInput !== "null") {
+            API.createPost({
+                body: event.target.postBody.value,
+                category: event.target.postCategory.value
+            })
+                .then((res) => {
+                    // Clear post form values
+                    this.setState({
+                        postBody: "",
+                        postCategory: ""
+                    });
+                    this.getUserPosts();
                 });
-                this.getUserPosts();
-            });
+        }
+        else alert("Category field required!");
     };
 
     componentDidMount = () => {
@@ -70,8 +75,8 @@ class Profile extends React.Component {
 
     render() {
 
-            // Redirect to "/" if user NOT logged in
-            if (!this.state.loggedIn) {
+        // Redirect to "/" if user NOT logged in
+        if (!this.state.loggedIn) {
             return <Redirect to="/" />
         }
 

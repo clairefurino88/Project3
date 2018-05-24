@@ -19,20 +19,25 @@ class Feed extends React.Component {
 
     addPost = (event) => {
         event.preventDefault();
-        API.createPost({
-            body: event.target.postBody.value,
-            category: event.target.postCategory.value
-        })
-            .then((res) => {
-                // Clear post form values
-                this.setState({
-                    postBody: "",
-                    postCategory: ""
+        // Post Form Validation
+        const categoryInput = event.target.postCategory.value;
+        if (categoryInput !== "null") {
+            API.createPost({
+                body: event.target.postBody.value,
+                category: event.target.postCategory.value
+            })
+                .then((res) => {
+                    // Clear post form values
+                    this.setState({
+                        postBody: "",
+                        postCategory: ""
+                    });
+                    this.getAllPosts();
                 });
-                this.getAllPosts();
-            });
+        }
+        else alert("Category field required!");
     };
-    
+
     componentDidMount = () => {
         if (!this.state.loggedIn) {
             // Redirect to "/" if user not logged in
