@@ -67,46 +67,31 @@ class Feed extends React.Component {
         }
     }
 
+    handleDelete = (event) => {
+        event.preventDefault();
+        API.deletePost(event.target.id)
+            .then((res) => {
+                this.getAllPosts();
+            });
+    }
+
     handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
     };
 
-    handleDelete = (e) => {
-        e.preventDefault();
-        API.deletePost(e.target.id) 
-            .then( (res) => {
-                this.getAllPosts();
-            });            
-    }
-
-//     handleDelete = (e) => {
-//         e.preventDefault();
-//         API.deletePost(e.target.id) 
-//             .then( (res) => {
-//                 API.getAllPosts()
-//                 .then((res) => {
-//                     this.setState({
-//                         posts: res.data
-//                     })
-//                 });
-//             })
-//             .catch( (err) => {
-//                 console.log(err)
-//             })
-//     }
-
     render() {
-          
-          // Redirect to "/" if not logged in
+
+        // Redirect to "/" if not logged in
         if (!this.state.loggedIn) {
             return <Redirect to="/" />
         }
-            
-        let user_id = this.props.user? this.props.user.id:"";
-       
+
+        // let user_id = this.props.user? this.props.user.id:"";
+        let loggedOnUserId = this.state.user.id;
+
         return (
-          
+
             <div className="feedContainer">
                 <CatButtons getPosts={this.getPostsByCategory} />
                 <Wrapper>
@@ -138,14 +123,14 @@ class Feed extends React.Component {
                                                 name={post.User.name}
                                                 timeStamp={post.updatedAt}
                                                 handleDelete={this.handleDelete}
-                                                UserId={post.UserId}
-                                                user_id={user_id}
+                                                userId={post.UserId}
+                                                user_id={loggedOnUserId}
                                             />
                                         );
-                                    })
+                                    }, this)
                                 )
                             };
-                            
+
                         </Col>
                         {/* Post form column */}
                         <Col size="md" span="4">

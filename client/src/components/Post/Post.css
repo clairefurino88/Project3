@@ -1,10 +1,19 @@
 /* User Post Styling */
 
+.postCategoryDelBtn {
+    color: rgb(252, 250, 132);
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 50px 0 0;
+    text-align: right;
+    text-shadow: 1px 1px #262f2a;
+}
+
 .postCategory {
     color: rgb(252, 250, 132);
     font-size: 15px;
     font-weight: bold;
-    margin: 10px 65px 0 0;
+    margin: 10px 5px 0 0;
     text-align: right;
     text-shadow: 1px 1px #262f2a;
 }
@@ -23,42 +32,6 @@
     box-shadow: 0 2px 4px 0 rgba(38, 47, 42, 1.0), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 20px;
     padding: 10px;
-}
-
-.postImg {
-    margin: 10px 15px;
-    text-align: center;
-}
-
-.postImg img {
-    background-color: white;
-    border-radius: 60%;
-    height: 100%;
-    max-height: 60px;
-    max-width: 60px;
-    padding: 4px;
-    width: 100%;
-}
-
-.postTime {
-    color: black;
-}
-
-.postUser {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 1px 1px #262f2a;
-}
-
-.postUserAndTime {
-    margin: 10px 0 0 -15px
-}
-
-.postDelBtn{
-    text-align: right;
-    margin: 10px 15px 0 0;
-    float: right;
 }
 
 #postDelBtn {
@@ -84,4 +57,43 @@
 
 #postDelBtn:focus {
     outline: none;
+}
+
+.postDelBtn{
+    text-align: right;
+    margin: 10px 15px 0 0;
+}
+
+.postImgWrapper {
+    margin: 10px 15px;
+    text-align: center;
+}
+
+.postImgWrapper img {
+    background-color: white;
+    border-radius: 60%;
+    height: 100%;
+    max-height: 65px;
+    max-width: 65px;
+    min-height: 65px;
+    min-width: 65px;
+    padding: 4px;
+    width: 100%;
+}
+
+.postTime {
+    color: rgb(252, 250, 132);
+    font-size: 13px;
+    text-shadow: 1px 1px #262f2a;
+}
+
+.postUser {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px #262f2a;
+}
+
+.postUserAndTime {
+    margin: 10px 0 0 -15px
 }
