@@ -23,13 +23,13 @@ const PostForm = ({ addPost, handleInputChange, postBody, postCategory }) => (
                             <option value="Health">Health</option>
                             <option value="Love">Love</option>
                             <option value="Money">Money</option>
-                            <option value="Coding">Music</option>
+                            <option value="Music">Music</option>
                             <option value="People">People</option>
                             <option value="Politics">Politics</option>
-                            <option value="Coding">Science</option>
-                            <option value="Teens">Sports</option>
-                            <option value="Transportation">Technology</option>
-                            <option value="Coding">TV</option>
+                            <option value="Science">Science</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Technology">Technology</option>
+                            <option value="TV">TV</option>
                             <option value="Weather">Weather</option>
 
                         </select>

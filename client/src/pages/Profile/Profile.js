@@ -68,6 +68,14 @@ class Profile extends React.Component {
             });
     };
 
+    handleDelete = (event) => {
+        event.preventDefault();
+        API.deletePost(event.target.id)
+            .then((res) => {
+                this.getUserPosts();
+            });
+    }
+
     handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
@@ -80,6 +88,9 @@ class Profile extends React.Component {
             return <Redirect to="/" />
         }
 
+        // Destructuring logged on user
+        let { bio, email, id, imageUrl, location, name, occupation, relationshipType } = this.state.user;
+
         return (
 
             <div className="profileContainer">
@@ -91,13 +102,13 @@ class Profile extends React.Component {
                         <Col size="md" span="4">
                             <div className="userInfoContainer">
                                 <UserInfo
-                                    image={this.state.user.imageUrl}
-                                    name={this.state.user.name}
-                                    email={this.state.user.email}
-                                    occupation={this.state.user.occupation}
-                                    relationshipType={this.state.user.relationshipType}
-                                    location={this.state.user.location}
-                                    bio={this.state.user.bio}
+                                    bio={bio}
+                                    email={email}
+                                    image={imageUrl}
+                                    location={location}
+                                    name={name}
+                                    occupation={occupation}
+                                    relationshipType={relationshipType}
                                 />
                             </div>
                         </Col>
@@ -122,18 +133,19 @@ class Profile extends React.Component {
                                     ""
                                     :
                                     (
-                                        // <p key="feedHeader" className="feedHeader">Your Stories...</p>,
                                         this.state.posts.map(function (post) {
-                                            let { name, imageUrl } = this.state.user;
                                             return (
                                                 <Post
                                                     key={post.id}
                                                     id={post.id}
                                                     category={post.category}
                                                     comment={post.body}
+                                                    handleDelete={this.handleDelete}
                                                     image={imageUrl}
                                                     name={name}
                                                     timeStamp={post.updatedAt}
+                                                    userId={post.UserId}
+                                                    user_id={id}
                                                 />
                                             );
                                         }, this)
